@@ -32,7 +32,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    public $redirectTo = '/admin/home';
+    public $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -41,7 +41,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin.guest', ['except' => 'logout']);
+        $this->middleware('admin.guest')->except('logout');
     }
 
     /**
@@ -103,17 +103,8 @@ class LoginController extends Controller
             //         ?: redirect()->intended($this->redirectPath());
             $adminDetails = Admin::where('email',$request->email)->first();
             // dd($adminDetails->is_activated);
-            if ($adminDetails->is_activated =='yes') {
-                
-                $this->authenticated($request, $this->guard()->user());
-            }else{
-                session()->flash('message',"This account is Deactivated");
-                $this->logout($request);
-                return $this->sendFailedLoginResponse($request);
-
-            }
-
-            return  redirect('/admin/home');
+            $this->authenticated($request, $this->guard()->user());
+            return  redirect('/admin');
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts

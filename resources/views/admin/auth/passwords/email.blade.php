@@ -1,5 +1,4 @@
-@extends('admin.layout.app')
-
+@extends('admin.layout.guest')
 @section('title') Admin Forgot Password @endsection
 
 <!-- Main Content -->

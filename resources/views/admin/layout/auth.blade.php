@@ -4,185 +4,229 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PM | @yield('title')</title>
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="/css/adminlte.min.css">
-    <link rel="stylesheet" href="/plugins/iCheck/flat/blue.css">
-    <link rel="stylesheet" href="/css/datepicker3.css">
-    <link rel="stylesheet" href="/css/daterangepicker-bs3.css">
-    <link rel="stylesheet" href="/css/bootstrap3-wysihtml5.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>Ponnu mappillai Admin</title>
+
+    <!-- Styles -->
+    <!-- <link href="/css/app.css" rel="stylesheet"> -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet"  />
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap-wysihtml5.css" rel="stylesheet" />
+    <link href="/css/colorpicker.css" rel="stylesheet" />
+    <link href="/css/datepicker.css" rel="stylesheet" />
+    <link href="/css/uniform.css" rel="stylesheet" />
+    <link href="/css/select2.css" rel="stylesheet" />
+    <link href="/css/fullcalendar.css" rel="stylesheet" />
+    <link href="/css/matrix-style.css" rel="stylesheet" />
+    <link href="/css/matrix-media.css" rel="stylesheet" />
+    <link href="/css/jquery.gritter.css" rel="stylesheet" />
+    <link href="/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    @yield('head')
+
+    <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.dropbtn2 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown2 {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content2 {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content2 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content2 a:hover {background-color: #ddd}
+
+.dropdown2:hover .dropdown-content2 {
+    display: block;
+}
+
+.dropdown2:hover .dropbtn2 {
+    background-color: #3e8e41;
+}
+</style>
 </head>
-<body class="hold-transition sidebar-mini">
-    <div class="wrapper">
-        <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
-                </li>
-            </ul>
-
-            <ul class="navbar-nav ml-auto">
-                <li><i class="fa fa-power-off"></i><a href="{{ url('/admin/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> Logout </a> </li>
-                <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-            </ul>
-        </nav>
-
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <a href="/admin/home" class="brand-link">
-                <img src="/img/Logo-PonnuMaapillai.png" alt="Ponnu Maapillai Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Ponnu Maapillai</span>
-            </a>
-
-            <div class="sidebar">
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="/img/avatar2.png" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
-                    </div>
-                </div>
-
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item">
-                            <a href="admin_pro.html" class="nav-link">
-                                <i class="fa fa-dashboard nav-icon"></i>
-                                <p>
-                                    Dashboard
-                                </p>
-                            </a>
-                        </li>
-                        <!-- <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-database"></i>
-                                <p>
-                                    Reports
-                                    <i class="right fa fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview" style="display: none;">
-                                <li class="nav-item">
-                                    <a href="admin_adate.html" class="nav-link">
-                                        <i class="fa fa-calendar-o nav-icon"></i>
-                                        <p>Admin Date Wise</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="admin_acaste.html" class="nav-link">
-                                        <i class="fa fa-flag-o nav-icon"></i>
-                                        <p>Caste Wise</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="admin_asub.html" class="nav-link">
-                                        <i class="fa fa-user-secret nav-icon"></i>
-                                        <p>Sub Admin</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li> -->
-                        <!-- <li class="nav-item">
-                            <a href="admin_musers.html" class="nav-link ">
-                                <i class="fa fa-users nav-icon"></i>
-                                <p>
-                                    Manage Users
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="admin_sadmin.html" class="nav-link active">
-                                <i class="fa fa-adn nav-icon"></i>
-                                <p>
-                                    Sub Admin
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="admin_search.html" class="nav-link">
-                                <i class="fa fa-search nav-icon"></i>
-                                <p>
-                                    Profile search
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="admin_pay.html" class="nav-link">
-                                <i class="fa fa-money nav-icon"></i>
-                                <p>
-                                    Payment Details
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="admin_fmgs.html" class="nav-link">
-                                <i class="fa fa-flash nav-icon"></i>
-                                <p>
-                                    Scrolling Message
-                                </p>
-                            </a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a href="/admin/caste" class="nav-link">
-                                <i class="fa fa-upload nav-icon"></i>
-                                <p>
-                                    Caste List
-                                </p>
-                            </a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a href="admin_new.html" class="nav-link">
-                                <i class="fa fa-plus-square-o nav-icon"></i>
-                                <p>
-                                    New Page
-                                </p>
-                            </a>
-                        </li> -->
-                    </ul>
-                </nav>
-            </div>
-        </aside>
-
-        @yield('content')    
-
-        <footer class="main-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <div class="copy">
-                            <p class="footer-block">| <a href="#" class="text-danger">About Us</a> | <a href="#" class="text-danger">Privacy Policy</a> | <a href="#" class="text-danger">Terms and Conditions</a> | <a href="#" class="text-danger">Reach Us</a></p>
-                            <p>All Rights Reserved.Copyright.© 2018 Ponnu Maapillai Developed By <a href="http://linepix.in">Linepix.in</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+<body>
+    <!--Header-part-->
+    <div id="header">
+      <!-- <h1><a href="dashboard.html">Matrix Admin</a></h1> -->
     </div>
-    <script src="/js/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script>$.widget.bridge('uibutton', $.ui.button)</script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="/js/morris.min.js"></script>
-    <script src="/js/jquery.sparkline.min.js"></script>
-    <script src="/js/jquery.knob.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <script src="/js/daterangepicker.js"></script>
-    <script src="/js/bootstrap-datepicker.js"></script>
-    <script src="/js/bootstrap3-wysihtml5.all.min.js"></script>
-    <script src="/js/jquery.slimscroll.min.js"></script>
-    <script src="/js/fastclick.js"></script>
-    <script src="/js/adminlte.js"></script>
-    <script src="/js/dashboard.js"></script>
-    <script src="/js/demo.js"></script>
+    <!--close-Header-part--> 
+    <!--top-Header-menu-->
+    <div id="user-nav" class="navbar navbar-inverse">
+      <ul class="nav">
+        <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome {{ Auth::user()->name }}</span><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
+            <li class="divider"></li>
+            <li><a href="{{ url('/admin/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="icon-key"></i> Log Out</a></li>
+          </ul>
+        </li>
+        
+        <li  class="dropdown" id="day-report" >
+            <a title="" href="#" data-toggle="dropdown" data-target="#day-report" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Day Report</span><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="{{url('/admin/dashboard/castewisereport?today=today')}}">Todays Report</a></li>
+                <li class="divider"></li>
+                <li><a href="{{url('/admin/dashboard/castewisereport?onemonth=onemonth')}}">Last Month</a></li>
+              </ul>
+        </li>
+        <li  class="dropdown" id="caste-report" >
+            <a title="" href="#" data-toggle="dropdown" data-target="#caste-report" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Caste Wise Report</span><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                @foreach($casteid as $key => $value)
+                <li>
+                    <a href="{{url('/admin/dashboard/castewisereport')}}?caste={{$value->id}}">{{$value->caste_name}}</a>
+                </li>
+                <li class="divider"></li>
+                @endforeach
+              </ul>
+        </li>
+        <li>
+            <a href="/admin/dashboard/castewisereport?subadmins=subadmins"><i class="icon icon-user"></i>  <span class="text">Admin Day Wise</span><b class="caret"></b></a>
+        </li>
+        <li class="">
+            <a title="" href="{{ url('/admin/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a>
+            <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+        </li>
+      </ul>
+    </div>
+    <!--close-top-Header-menu-->
+    <!--sidebar-menu-->
+    <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+      <ul>
+        <li><a href="{{url('/admin/dashboard/no-of-user')}}"    ><i class="icon-user"></i> No of User</a></li>
+        <li><a href="{{url('/admin/manage-user')}}"><i class="icon icon-user"></i> <span>Manage Users</span></a> </li>
+        <li><a href="{{url('/admin/manage-subadmin')}}"><i class="icon icon-user"></i> <span>Manage Subadmin</span></a> </li>
+        <li><a href="{{url('/admin/profile/search')}}"><i class="icon icon-search"></i> <span>Profile Search</span></a> </li>
+        <li><a href="{{url('/admin/paymentdetails')}}"><i class="icon-check"></i> Pyament Details</a></li>
+      </ul>
+    </div>
+    <!--sidebar-menu-->  
+    <div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="{{ url('/admin') }}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
+    </div>
+    <!--End-breadcrumbs-->
+        @yield('content')
+    </div>
+
+    <!--Footer-part-->
+
+    <div class="row-fluid">
+  <div id="footer" class="span12"> <p>All Rights Reserved.Copyright.© 2017-2018 Ponnu Maapillai Developed By <a href="http://linepix.in">Linepix.in</a></p></div>
+</div>
+
+    <!--end-Footer-part-->
+    <!-- Scripts -->
+    <script src="/js/app.js"></script>
+    <script src="/js/excanvas.min.js"></script> 
+    <script src="/js/jquery.min.js"></script> 
+    <script src="/js/jquery.ui.custom.js"></script> 
+    <script src="/js/bootstrap.min.js"></script> 
+    <script src="/js/jquery.flot.min.js"></script> 
+    <script src="/js/jquery.flot.resize.min.js"></script> 
+    <script src="/js/jquery.peity.min.js"></script> 
+    <script src="/js/fullcalendar.min.js"></script> 
+    <script src="/js/matrix.js"></script> 
+    <script src="/js/matrix.dashboard.js"></script> 
+    <script src="/js/jquery.gritter.min.js"></script> 
+    <script src="/js/matrix.interface.js"></script> 
+    <script src="/js/matrix.chat.js"></script> 
+    <script src="/js/jquery.validate.js"></script> 
+    <script src="/js/matrix.form_validation.js"></script> 
+    <script src="/js/jquery.wizard.js"></script> 
+    <script src="/js/jquery.uniform.js"></script> 
+    <script src="/js/select2.min.js"></script> 
+    <script src="/js/matrix.popover.js"></script> 
+    <script src="/js/jquery.dataTables.min.js"></script> 
+    <script src="/js/matrix.tables.js"></script>
+    <script src="/js/jquery.min.js"></script> 
+    <script src="/js/jquery.ui.custom.js"></script> 
+    <script src="/js/bootstrap.min.js"></script> 
+    <script src="/js/bootstrap-colorpicker.js"></script> 
+    <script src="/js/bootstrap-datepicker.js"></script> 
+    <script src="/js/jquery.toggle.buttons.js"></script> 
+    <script src="/js/masked.js"></script> 
+    <script src="/js/jquery.uniform.js"></script> 
+    <script src="/js/select2.min.js"></script> 
+    <script src="/js/matrix.js"></script> 
+    <script src="/js/matrix.form_common.js"></script> 
+    <script src="/js/wysihtml5-0.3.0.js"></script> 
+    <script src="/js/jquery.peity.min.js"></script> 
+    <script src="/js/bootstrap-wysihtml5.js"></script>
+    <script type="text/javascript">
+        @yield('scripts')
+    </script>
 </body>
 </html>

@@ -1,68 +1,32 @@
-@extends('layouts.app')
+@extends('layouts.guestlogin')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+@if(Session::has('message')) <div class="alert alert-info"> {{Session::get('message')}} </div> @endif
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="has-warning">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+<div class="container">    
+    <marquee behavior=scroll direction="left" style="color:red;font-size: 20px;" scrollamount="3">Introductory Offer Annual Subscription Fee Rupees 600 - அறிமுக சலுகை ஒரு ஆண்டு சந்தா கட்டணம் ரூபாய் 600</marquee>
+    <div class="col-md-8">
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="container">
+                    <div class="banner_info">
+                        <!-- <h3>Millions of verified Members</h3> -->
+                        <div class="blink"><span><strong style="color: black">New User</strong></span></div>
+                        <a href="{{ route('register') }}" class="hvr-shutter-out-horizontal reg-pull-right">Create Your Account</a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="col-md-12">
+            <form method="POST" action="{{ route('login') }}">
+                {{ csrf_field() }}
+                    <div class="god">
+                    </div>
+                    <center><p style="color: #fff;font-weight: 700; font-size:15px;margin-top: -375px;">MEENAKSHI THIRUKALYANAM</p></center>
+            </form>
         </div>
     </div>
 </div>

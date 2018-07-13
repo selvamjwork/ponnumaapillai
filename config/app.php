@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => 'Ponnu Maapillai',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,7 +163,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
+        Softon\Indipay\IndipayServiceProvider::class,
+        
         /*
          * Package Service Providers...
          */
@@ -177,7 +179,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-
+        Folklore\Image\ImageServiceProvider::class,
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -192,7 +197,6 @@ return [
     */
 
     'aliases' => [
-
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
@@ -228,7 +232,12 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-
+        'Img' => Folklore\Image\Facades\Image::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
+        'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
+        'Indipay' => Softon\Indipay\Facades\Indipay::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

@@ -4,6 +4,11 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Validator;
+use App\Notifications\sendEmailVerifyToken;
+use Illuminate\Support\Str;
+use DB;
+use App\caste;
 
 class User extends Authenticatable
 {
@@ -15,7 +20,54 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+            'user_id',
+            'name',
+            'fathers_name',
+            'fathers_occupation',
+            'mothers_name',
+            'mothers_occupation',
+            'gender',
+            'noofbrothers',
+            'noofbrothersstatus',
+            'noofsisters',
+            'noofsistersstatus',
+            'month',
+            'day',
+            'year',
+            'age',
+            'hour',
+            'minutes',
+            'seconds',
+            'session',
+            'height',
+            'weight',
+            'graduate',
+            'qualification',
+            'annual_income',
+            'professional',
+            'mother_tongue',
+            'religion',
+            'caste',
+            'subsect',
+            'gothram',
+            'moonsign',
+            'star',
+            'pob',
+            'address',
+            'mobile',
+            'email',
+            'password',
+            'profile_pic',
+            'email_verified',
+            'mobile_verified',
+            'role',
+            'active',
+            'payment_completed',
+            'profile_completed',
+            'admin_id',
+            'aboutyourself',
+            'dosatype',
+            'dosham',
     ];
 
     /**
@@ -26,4 +78,36 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function updateValidate(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'string|max:255',
+            'mobile' => 'string|max:255',
+            
+        ]);
+    }
+
+    public function sendEmail($user)
+    {
+        return redrect('/resendEmailToken');
+        #this function is to send eamil verifcation token
+        // $EmailVerifyToken = Str::random(60);
+        // $emailVerify = DB::table('email_verify')->insert([
+        //     'email'=>$user->email,
+        //     'token'=>$EmailVerifyToken,
+        //     'created_at'=>\Carbon\Carbon::now(),
+        // ]);
+        // $user->notify(new sendEmailVerifyToken($EmailVerifyToken));
+    }
+
+    public function caste()
+    {
+        return $this->belongsTo('App\caste','id');
+    }
+
+    public function interestedprofile()
+    {
+        return $this->belongsTo('App\interestedprofile','interesteduserid');
+    }
 }

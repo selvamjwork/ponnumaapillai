@@ -36,6 +36,11 @@ return [
     */
 
     'guards' => [
+        'subadmin' => [
+            'driver' => 'session',
+            'provider' => 'subadmins',
+        ],
+
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
@@ -70,6 +75,11 @@ return [
     */
 
     'providers' => [
+        'subadmins' => [
+            'driver' => 'eloquent',
+            'model' => App\Subadmin::class,
+        ],
+
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
@@ -102,6 +112,12 @@ return [
     */
 
     'passwords' => [
+        'subadmins' => [
+            'provider' => 'subadmins',
+            'table' => 'subadmin_password_resets',
+            'expire' => 60,
+        ],
+
         'admins' => [
             'provider' => 'admins',
             'table' => 'admin_password_resets',

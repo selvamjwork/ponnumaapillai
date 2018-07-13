@@ -33,7 +33,8 @@ class Kernel extends HttpKernel
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
+            // \App\Http\Middleware\VerifyCsrfToken::class,
+             \App\Http\Middleware\VerifyCsrfMiddleware::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -51,6 +52,8 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'subadmin' => \App\Http\Middleware\RedirectIfNotSubadmin::class,
+        'subadmin.guest' => \App\Http\Middleware\RedirectIfSubadmin::class,
         'admin' => \App\Http\Middleware\RedirectIfNotAdmin::class,
         'admin.guest' => \App\Http\Middleware\RedirectIfAdmin::class,
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
@@ -59,6 +62,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'checkAdminActiveStatus' => \App\Http\Middleware\checkAdminAccountIsActivatedOrDeActivated::class,
+        'userLog'=>\App\Http\Middleware\UserLog::class,
+        'isEmailVerified'=>\App\Http\Middleware\EmailVerified::class,
     ];
 }

@@ -1,0 +1,5 @@
+{
+    "require": {
+        "softon/indipay": "^1.1"
+    }
+}

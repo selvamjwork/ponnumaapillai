@@ -1,5 +1,4 @@
-@extends('admin.layout.app')
-
+@extends('admin.layout.guest')
 @section('title') Admin Login @endsection
 
 @section('content')
@@ -37,14 +36,6 @@
                                                 <strong>{{ $errors->first('password') }}</strong>
                                             </span>
                                         @endif
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="offset-md-8 offset-sm-10 col-md-9 col-sm-12">
-                                        <a class="btn btn-link" style="color:#dc3545;" href="{{ url('/admin/password/reset') }}">
-                                            Forgot Your Password?
-                                        </a>
                                     </div>
                                 </div>
                                 

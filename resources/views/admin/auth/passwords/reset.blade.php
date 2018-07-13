@@ -1,4 +1,4 @@
-@extends('admin.layout.app')
+@extends('admin.layout.guest')
 
 @section('title') Admin Reset Password @endsection
 
