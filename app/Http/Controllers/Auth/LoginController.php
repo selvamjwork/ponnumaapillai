@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\scrollingmessage;
 
 class LoginController extends Controller
 {
@@ -59,5 +60,16 @@ class LoginController extends Controller
     public function username()
     {
         return 'user_id';
+    }
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        $scrollingmessage = scrollingmessage::where('active','=','1')->get();
+        return view('auth.login',compact('scrollingmessage'));
     }
 }

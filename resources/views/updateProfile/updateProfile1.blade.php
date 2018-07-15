@@ -26,7 +26,7 @@
                     <div class="card card-danger card-outline">
                         <div class="card-body box-profile">
                             <div class="text-center">
-                                <img id="thumbnil" class="img-bordered elevation-1  mb-3" src="img/avatar5.png" height="200px" width="200px" alt="User Avatar">
+                                <img id="thumbnil" class="img-bordered elevation-1  mb-3" src="/images/uploads/profile_pic/{{$user->profile_pic}}" height="200px" width="200px" alt="User Avatar">
                             </div>
                             <div class="form-group">
                                 <label for="profile_pic">File input</label>

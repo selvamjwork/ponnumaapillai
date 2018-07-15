@@ -18,6 +18,7 @@ use App\day;
 use App\month;
 use App\year;
 use App\Sms;
+use App\scrollingmessage;
 
 class RegisterController extends Controller
 {
@@ -104,6 +105,9 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         $caste = caste::orderBy('caste_name','ASC')->get();
+
+        $scrollingmessage = scrollingmessage::where('active','=','1')->get();
+
         $casteArray = array();
         foreach ($caste as $value) {
             $casteArray[$value['id']] =ucfirst($value['caste_name']);
@@ -129,7 +133,7 @@ class RegisterController extends Controller
         foreach ($year as $value) {
             $yearArray[$value['year_id']] =ucfirst($value['year_name']);
         }
-        return view('auth.register',compact('casteArray','yearArray','monthArray','dayArray'));
+        return view('auth.register',compact('scrollingmessage','casteArray','yearArray','monthArray','dayArray'));
     }
 
     public function register(Request $request)

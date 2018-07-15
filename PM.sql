@@ -24,6 +24,9 @@ INSERT INTO `caste` (`id`, `caste_name`) VALUES
 (20, 'Navithar - நாவிதர்'),
 (21, 'URALI GOUNDER - ஊராளி கவுண்டர்');
 
+INSERT INTO `scrollingmessage` (`id`, `scrolling_message`, `active`) VALUES
+(1, '26-04-18 முதல் 28-04-18 வரை மதுரை மீனாட்சி திருகல்யாணத்தை முன்னிட்டு ஆன்லைனில் பதிவு செய்பவர்களுக்கு முற்றிலும் இலவசம். சுய விவரத்தை பூர்த்தி செய்த பின் 9940101795ஐ தொடர்பு கொள்ளவும்.', 1);
+
 INSERT INTO `day` (`id`, `day_name`) VALUES
 (1, '1'),
 (2, '2'),

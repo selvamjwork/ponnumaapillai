@@ -25,6 +25,9 @@ use App\qualification;
 use App\graduate;
 use App\professional;
 use App\UserRole;
+use App\dosatype;
+use App\dosham;
+use App\horoscope;
 
 class ManageUserController extends Controller
 {
@@ -48,9 +51,18 @@ class ManageUserController extends Controller
      */
     public function show($id)
     {
-         $user = User::findOrFail($id);
+        $user = User::findOrFail($id);
+        $dosatype = dosatype::findOrFail($user->dosatype);
+        $dosham = dosham::findOrFail($user->dosham);
+        $caste = caste::findOrFail($user->caste);
+        $moonsign = rasipalan::findOrFail($user->moonsign);
+        $star = natchathiram::findOrFail($user->star);
+        $mother_tongue = mothers_tongue::findOrFail($user->mother_tongue);
+        $professional = professional::findOrFail($user->professional);
+        $graduate = graduate::findOrFail($user->graduate);
+        $horoscope = horoscope::where('user_id',$user->id)->get();
 
-        return view('subadmin.manage-user.show', compact('user'));
+        return view('subadmin.manage-user.show', compact('horoscope','graduate','professional','caste','moonsign','mother_tongue','star','user','dosatype','dosham'));
     }
 
     /**
@@ -63,6 +75,23 @@ class ManageUserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
+        $dosatype = dosatype::findOrFail($user->dosatype);
+        $dosham = dosham::findOrFail($user->dosham);
+
+        $horoscope = horoscope::where('user_id',$user->id)->get();
+
+        $dosatype = dosatype::orderBy('id','ASC')->get();
+        $dosatypeArray = array();
+        foreach ($dosatype as $value) {
+            $dosatypeArray[$value['id']] =ucfirst($value['dosatype_name']);
+        }
+
+        #dosham dropdown
+        $dosham = dosham::orderBy('id','ASC')->get();
+        $doshamArray = array();
+        foreach ($dosham as $value) {
+            $doshamArray[$value['id']] =ucfirst($value['dosham_name']);
+        }
 
         #caste dropdown
         $caste = caste::orderBy('caste_name','ASC')->get();
@@ -156,7 +185,7 @@ class ManageUserController extends Controller
         }
 
         $user->password =  '';
-        return view('subadmin.manage-user.edit', compact('user','casteArray','rasipalanArray','starArray','mothers_tongueArray','dayArray','monthArray','yearArray','hourArray','minuteArray','secondArray','qualificationArray','graduateArray','professionalArray'));
+        return view('subadmin.manage-user.edit', compact('horoscope','doshamArray', 'dosatypeArray','user','casteArray','rasipalanArray','starArray','mothers_tongueArray','dayArray','monthArray','yearArray','hourArray','minuteArray','secondArray','qualificationArray','graduateArray','professionalArray'));
     }
 
     /**
@@ -201,37 +230,9 @@ class ManageUserController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'fathers_name' => 'required|max:255',
-            // 'fathers_occupation' => 'required|max:255',
             'mothers_name' => 'required|max:255',
-            // 'mothers_occupation' => 'required|max:255',
-            'gender' => 'required|max:255',
-            'noofbrothers' => 'required|max:255',
-            'noofbrothersstatus' => 'required|max:255',
-            'noofsisters' => 'required|max:255',
-            'noofsistersstatus' => 'required|max:255',
-            'month' => 'required|max:255',
-            'day' => 'required|max:255',
-            'year' => 'required|max:255',
-            'hour' => 'required|max:255',
-            'minutes' => 'required|max:255',
-            'seconds' => 'required|max:255',
-            'session' => 'required|max:255',
-            // 'height' => 'required|max:255',
-            // 'weight' => 'required|max:255',
-            'graduate' => 'required|max:255',
-            'qualification' => 'required|max:255',
-            // 'annual_income' => 'required|max:255',
-            'professional' => 'required|max:255',
-            'mother_tongue' => 'required|max:255',
-            'religion' => 'required|max:255',
-            'caste' => 'required|max:255',
-            'subsect' => 'required|max:255',
-            // 'gothram' => 'required|max:255',
-            'moonsign' => 'required|max:255',
-            'star' => 'required|max:255',
             'pob' => 'required|max:255',
             'mobile' => 'required|max:10|unique:users',
-            'email' => 'email|max:255|unique:users',
             'password' => 'required|min:6',
         ]);
     }
@@ -243,6 +244,19 @@ class ManageUserController extends Controller
      */
     public function create(Request $request)
     {
+
+        $dosatype = dosatype::orderBy('id','ASC')->get();
+        $dosatypeArray = array();
+        foreach ($dosatype as $value) {
+            $dosatypeArray[$value['id']] =ucfirst($value['dosatype_name']);
+        }
+
+        #dosham dropdown
+        $dosham = dosham::orderBy('id','ASC')->get();
+        $doshamArray = array();
+        foreach ($dosham as $value) {
+            $doshamArray[$value['id']] =ucfirst($value['dosham_name']);
+        }
         
         #caste dropdown
         $caste = caste::orderBy('caste_name','ASC')->get();
@@ -342,7 +356,7 @@ class ManageUserController extends Controller
             $qualificationArray[$value['id']] =ucfirst($value['qualification_name']);
         }
 
-        return view('subadmin.manage-user.create',compact(['casteArray','rasipalanArray','starArray','subsectArray','mothers_tongueArray','dayArray','monthArray','yearArray','hourArray','minuteArray','secondArray','qualificationArray','graduateArray','professionalArray']));
+        return view('subadmin.manage-user.create',compact(['doshamArray', 'dosatypeArray','casteArray','rasipalanArray','starArray','subsectArray','mothers_tongueArray','dayArray','monthArray','yearArray','hourArray','minuteArray','secondArray','qualificationArray','graduateArray','professionalArray']));
     }
 
     /**
@@ -354,11 +368,7 @@ class ManageUserController extends Controller
      */
     public function store(Request $request)
     {
-
         $subadmin = \Auth::user()->id;
-
-        // dd($subadmin);
-
         $requestData = $request->all();
         $this->validator($request->all())->validate();
         $requestData['password'] = Hash::make($requestData['password']);
@@ -367,7 +377,30 @@ class ManageUserController extends Controller
         $requestData['age'] = $to-$from;
         // dd($requestData['age']);
         $usercreate = User::create($requestData);
-        $userid_generete = 'PM000'  .$usercreate->id ;
+        $horoscope = horoscope::create([
+            'user_id' => $usercreate->id,
+            'raasi_sun' => $request->raasi_sun,
+            'raasi_moon' => $request->raasi_moon,
+            'raasi_mars' => $request->raasi_mars,
+            'raasi_mercury' => $request->raasi_mercury,
+            'raasi_jupiter' => $request->raasi_jupiter,
+            'raasi_venus' => $request->raasi_venus,
+            'raasi_saturn' => $request->raasi_saturn,
+            'raasi_raagu' => $request->raasi_raagu,
+            'raasi_kethu' => $request->raasi_kethu,
+            'raasi_lagna' => $request->raasi_lagna,
+            'amsam_sun' => $request->amsam_sun,
+            'amsam_moon' => $request->amsam_moon,
+            'amsam_mars' => $request->amsam_mars,
+            'amsam_mercury' => $request->amsam_mercury,
+            'amsam_jupiter' => $request->amsam_jupiter,
+            'amsam_venus' => $request->amsam_venus,
+            'amsam_saturn' => $request->amsam_saturn,
+            'amsam_raagu' => $request->amsam_raagu,
+            'amsam_kethu' => $request->amsam_kethu,
+            'amsam_lagna' => $request->amsam_lagna,
+        ]);
+        $userid_generete = 'PM1000'  .$usercreate->id ;
         $usercreate->user_id = $userid_generete;
         $usercreate->admin_id = $subadmin;
         $usercreate->save();

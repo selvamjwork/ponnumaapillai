@@ -190,7 +190,7 @@ class UserController extends Controller
 			$file = $request->file('profile_pic');
 			$file->getClientOriginalName();
 
-			$targetFileName = \Auth::user()->user_id.'.'.$file->getClientOriginalExtension();
+			$targetFileName = date('YmdHis'.substr((string)microtime(), 1, 8)).'.'.$file->getClientOriginalExtension();
 			$file->move($path,$targetFileName);
             $formValue['profile_pic'] = $targetFileName;        
 		}

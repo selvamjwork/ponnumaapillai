@@ -2,13 +2,17 @@
 @section('page_name') Registration  @endsection
 
 @section('marquee')
-<div class="container" id="marquee">
+<div class="container pt-5" id="marquee">
     <div class="row mt-5">
-        <div class="col alert alert-warning">
-            <marquee class="text-danger" behavior="scroll" direction="left" scrollamount="8">
-                <h4>26-04-18 முதல் 28-04-18 வரை மதுரை மீனாட்சி திருகல்யாணத்தை முன்னிட்டு ஆன்லைனில் பதிவு செய்பவர்களுக்கு முற்றிலும் இலவசம். சுய விவரத்தை பூர்த்தி செய்த பின் 9940101795ஐ தொடர்பு கொள்ளவும்.</h4>
-            </marquee>
-        </div>
+        @if(isset($scrollingmessage))
+            @foreach($scrollingmessage as $message)
+                <div class="col alert alert-warning">
+                    <marquee class="text-danger" behavior="scroll" direction="left" scrollamount="8">
+                        <h4>{{$message->scrolling_message}}</h4>
+                    </marquee>
+                </div>
+            @endforeach
+        @endif
     </div>
 </div>
 @endsection

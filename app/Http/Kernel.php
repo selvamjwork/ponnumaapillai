@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'userLog'=>\App\Http\Middleware\UserLog::class,
         'isEmailVerified'=>\App\Http\Middleware\EmailVerified::class,
+        'scrollingmessage' => \App\Http\Middleware\scrollingmessage::class,
     ];
 }

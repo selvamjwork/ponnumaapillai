@@ -166,11 +166,3 @@
     </div>
 </div>
 @endsection
-
-@section('scripts')
-	$(function() {
-	    $('.multiselect-ui').multiselect({
-	        includeSelectAllOption: true
-	    });
-	});
-@endsection

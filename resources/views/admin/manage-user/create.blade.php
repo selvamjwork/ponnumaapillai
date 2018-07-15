@@ -559,7 +559,7 @@
                                 </div>
                             </div>
                              <input id="email_verified" type="hidden" class="form-control" name="email_verified" value="1" required >
-                              <input id="payment_completed" type="hidden" class="form-control" name="payment_completed" value="1" required >
+                              <input id="profile_completed" type="hidden" class="form-control" name="profile_completed" value="1" required >
                             <div class=" row">
                                 <div class="offset-md-4 offset-lg-5 col-lg-3 offset-4 col-4 offset-xl-4">
                                     <button type="submit" class="btn btn-danger">Update My Profile</button>

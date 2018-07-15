@@ -81,8 +81,16 @@ class ScrollingMessageController extends Controller
     public function destroy($id)
     {
         $scrollingmessage = scrollingmessage::findOrFail($id);
-        $scrollingmessage->delete();
-        Session::flash('success', 'Scrolling Message Deleted Successfully Done !!!');        
+        if ($scrollingmessage->active == 1) {
+            $scrollingmessage->active = '0' ;
+            $scrollingmessage->update();
+            Session::flash('success', 'Scrolling Message Disable Successfully Done !!!'); 
+        }
+        else{
+            $scrollingmessage->active = '1' ;
+            $scrollingmessage->update();
+            Session::flash('success', 'Scrolling Message Enable Successfully Done !!!'); 
+        }
         return redirect('admin/scrollingmessage');
     }
 }

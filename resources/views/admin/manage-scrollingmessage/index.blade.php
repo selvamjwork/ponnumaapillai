@@ -45,20 +45,35 @@
                                     <tr>
                                         <!-- <th style="width: 15px">#</th> -->
                                         <th>Edit Scrolling Message</th>
+                                        <th>Status</th>
                                         <th style="width: 40px">Edit</th>
-                                        <!-- <th style="width: 40px">Delete</th> -->
+                                        <th style="width: 40px">Actions</th>
                                     </tr>
                                     @foreach($scrollingmessage as $value)
                                         <tr>
                                             <!-- <td>{{$value->id}}</td> -->
                                             <td>{{$value->scrolling_message}}</td>
                                             <td>
+                                                @if($value->active == 1)
+                                                    Active
+                                                @else
+                                                    inActive
+                                                @endif
+                                            </td>
+                                            <td>
                                                 <a href="{{ url('/admin/scrollingmessage/' . $value->id . '/edit') }}"><span class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span></a>
                                             </td>
-                                            <!-- <td>{!! Form::open(['method'=>'DELETE','url' => ['/admin/scrollingmessage', $value->id],'style' => 'display:inline']) !!}
-                                            {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>', array('type' => 'submit','class' => 'btn btn-danger','onclick'=>'return confirm("Confirm Delete?")')) !!}
-                                            {!! Form::close() !!}
-                                            </td> -->
+                                            @if($value->active == 1)
+                                                <td>{!! Form::open(['method'=>'DELETE','url' => ['/admin/scrollingmessage', $value->id],'style' => 'display:inline']) !!}
+                                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>', array('type' => 'submit','class' => 'btn btn-danger','onclick'=>'return confirm("Confirm Disable?")')) !!}
+                                                {!! Form::close() !!}
+                                                </td>
+                                            @else
+                                                <td>{!! Form::open(['method'=>'DELETE','url' => ['/admin/scrollingmessage', $value->id],'style' => 'display:inline']) !!}
+                                                {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i>', array('type' => 'submit','class' => 'btn btn-success')) !!}
+                                                {!! Form::close() !!}
+                                                </td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                 </tbody>

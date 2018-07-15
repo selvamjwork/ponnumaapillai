@@ -8,9 +8,12 @@ Route::group(['middleware'],function(){
 	    return view('subadmin.home');
 	});
 
-	Route::get('/',function(){
+	Route::get('/home',function(){
 		return view('subadmin.home');
 	});
+
+	Route::get('/update-horoscope/{user}', 'SubAdmin\HoroscopesEditController@editHoroscope');
+    Route::patch('/update-horoscope', 'SubAdmin\HoroscopesEditController@updateHoroscope');
 
 	//User Register
 	Route::get('/register', 'Auth\RegisterController@showRegistrationForm');

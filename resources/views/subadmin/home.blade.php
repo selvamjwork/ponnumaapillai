@@ -1,17 +1,34 @@
 @extends('subadmin.layout.home')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Sub Admin Dashboard</div>
+@section('title') Home @endsection
 
-                <div class="panel-body">
-                    You are logged in as Sub Admin!
-                </div>
+@section('content')
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                
             </div>
         </div>
     </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-danger">
+                        <div class="card-header">
+                            <h3 class="card-title">Home</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-header bg-white mt-2">
+                                <center><div class="container">You are logged in as Sub Admin!</center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 @endsection

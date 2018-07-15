@@ -27,6 +27,7 @@ use App\Sms;
 use App\dosatype;
 use App\dosham;
 use App\horoscope;
+use App\scrollingmessage;
 
 class createProfileController extends Controller
 {
@@ -40,7 +41,11 @@ class createProfileController extends Controller
     {
     	$user = \Auth::user();
 
-    	#caste dropdown
+    	$scrollingmessage = scrollingmessage::where('active','=','1')->get();
+
+    	// dd($scrollingmessage);
+
+		#caste dropdown
 		$caste = caste::orderBy('caste_name','ASC')->get();
 		$casteArray = array();
 		foreach ($caste as $value) {
@@ -68,18 +73,20 @@ class createProfileController extends Controller
 			$mothers_tongueArray[$value['id']] =ucfirst($value['language_name']);
 		}
 
-		return view('profile.createProfile1',compact(['user','casteArray','graduateArray','mothers_tongueArray','professionalArray']));
+		return view('profile.createProfile1',compact(['scrollingmessage','user','casteArray','graduateArray','mothers_tongueArray','professionalArray']));
     }
 
     public function createForm2()
     {
     	$user = \Auth::user();
-    	return view('profile.createProfile2',compact(['user']));
+    	$scrollingmessage = scrollingmessage::where('active','=','1')->get();
+    	return view('profile.createProfile2',compact(['user','scrollingmessage']));
     }
 
     public function createForm3()
     {
     	
+    	$scrollingmessage = scrollingmessage::where('active','=','1')->get();
 
 		#rasi dropdown
 		$rasipalan = rasipalan::orderBy('id','ASC')->get();
@@ -159,7 +166,7 @@ class createProfileController extends Controller
 		}
 
     	$user = \Auth::user();
-    	return view('profile.createProfile3',compact(['doshamArray','dosatypeArray','user','casteArray','rasipalanArray','starArray','mothers_tongueArray','dayArray','monthArray','yearArray','hourArray','minuteArray','secondArray','qualificationArray']));
+    	return view('profile.createProfile3',compact(['scrollingmessage','doshamArray','dosatypeArray','user','casteArray','rasipalanArray','starArray','mothers_tongueArray','dayArray','monthArray','yearArray','hourArray','minuteArray','secondArray','qualificationArray']));
     }
     public function create1(Request $request)
     {

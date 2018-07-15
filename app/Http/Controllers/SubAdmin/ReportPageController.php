@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use DB;
 use Session;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class ReportPageController extends Controller
 {
@@ -37,6 +38,8 @@ class ReportPageController extends Controller
         			   ->distinct('id')
         			   ->count('id');
 
-        return view('subadmin.dashboard.noofuser',compact('todayuser','alluser','male','female'));
+        $newuser = User::where('admin_id', '=',$authuser)->where('created_at', '>=',$date )->paginate(10);
+
+        return view('subadmin.dashboard.noofuser',compact('newuser','todayuser','alluser','male','female'));
     }    
 }
