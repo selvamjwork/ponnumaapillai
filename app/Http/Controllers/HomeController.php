@@ -22,6 +22,8 @@ use App\Sms;
 use App\mobile_verify;
 use PDF;
 use App\horoscope;
+use App\dosatype;
+use App\dosham;
 
 class HomeController extends Controller
 {
@@ -98,6 +100,8 @@ class HomeController extends Controller
     {   
         $us = \Auth::user();
         $horoscope = horoscope::where('user_id',$us->id)->get();
+        $dosatype = dosatype::findOrFail($us->dosatype);
+        $dosham = dosham::findOrFail($us->dosham);
         $caste = caste::findOrFail($us->caste);
         $subcaste = subcaste::findOrFail($us->subsect);
         $moonsign = rasipalan::findOrFail($us->moonsign);
@@ -107,7 +111,7 @@ class HomeController extends Controller
         $graduate = graduate::findOrFail($us->graduate);
         // dd($graduate->graduate_name);
         $user = User::where('id','=',$us->id)->get();
-        return view('user.myprofile',compact('horoscope','user','caste','subcaste','moonsign','star','mother_tongue','professional','graduate'));
+        return view('user.myprofile',compact('dosham','dosatype','horoscope','user','caste','subcaste','moonsign','star','mother_tongue','professional','graduate'));
     }
 
     public function pdf()

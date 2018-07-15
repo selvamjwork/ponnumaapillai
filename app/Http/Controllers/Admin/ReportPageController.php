@@ -153,8 +153,8 @@ class ReportPageController extends Controller
         }
         if ($request->has('bysubadmin')) {
         $cwrs = DB::table('subadmins')
-                //->where('admin_id', '1')
-                //->orWhere('created_at', '<=',$date )
+                // ->where('admin_id', '1')
+                ->orWhere('created_at', '<=',$date )
                 ->get();
         $casteid = DB::table('caste')->get(); 
         $subadmins = DB::table('subadmins')->get();

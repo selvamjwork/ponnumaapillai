@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="/css/adminlte.min.css">
-    <link rel="stylesheet" href="/plugins/iCheck/flat/blue.css">
+    <link rel="stylesheet" href="//plugins/iCheck/flat/blue.css">
     <link rel="stylesheet" href="/css/datepicker3.css">
     <link rel="stylesheet" href="/css/daterangepicker-bs3.css">
     <link rel="stylesheet" href="/css/bootstrap3-wysihtml5.min.css">
@@ -62,7 +62,13 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/dashboard/castewisereport?subadmins=subadmins" class="nav-link">
+                                <i class="fa fa-calendar-o nav-icon"></i>
+                                <p>Admin Date Wise</p>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-database"></i>
                                 <p>
@@ -90,9 +96,9 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
-                            <a href="admin_sadmin.html" class="nav-link">
+                            <a href="/admin/manage-subadmin" class="nav-link">
                                 <i class="fa fa-adn nav-icon"></i>
                                 <p>
                                     Sub Admin
@@ -100,23 +106,16 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="admin_search.html" class="nav-link">
+                            <a href="{{url('/admin/profile/search')}}" class="nav-link">
                                 <i class="fa fa-search nav-icon"></i>
                                 <p>
                                     Profile search
                                 </p>
                             </a>
                         </li>
+                        
                         <li class="nav-item">
-                            <a href="admin_pay.html" class="nav-link">
-                                <i class="fa fa-money nav-icon"></i>
-                                <p>
-                                    Payment Details
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="admin_fmgs.html" class="nav-link">
+                            <a href="/admin/scrollingmessage" class="nav-link">
                                 <i class="fa fa-flash nav-icon"></i>
                                 <p>
                                     Scrolling Message
@@ -144,14 +143,6 @@
                                 <i class="fa fa-users nav-icon"></i>
                                 <p>
                                     Manage Users
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="admin_new.html" class="nav-link">
-                                <i class="fa fa-plus-square-o nav-icon"></i>
-                                <p>
-                                    New Page
                                 </p>
                             </a>
                         </li>
@@ -192,8 +183,6 @@
     <script src="/js/adminlte.js"></script>
     <script src="/js/dashboard.js"></script>
     <script src="/js/demo.js"></script>
-    <script type="text/javascript">
-        @yield('scripts')
-    </script>
+    @yield('scripts')
 </body>
 </html>

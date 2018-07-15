@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
 use Session;
 use App\horoscope;
+use App\dosatype;
+use App\dosham;
+
 
 class interestedProfileController extends Controller
 {
@@ -48,6 +51,8 @@ class interestedProfileController extends Controller
     public function show(User $user)
     {
         $horoscope = horoscope::where('user_id',$user->id)->get();
+        $dosatype = dosatype::findOrFail($user->dosatype);
+        $dosham = dosham::findOrFail($user->dosham);
         $caste = caste::findOrFail($user->caste);
         $subcaste = subcaste::findOrFail($user->subsect);
         $moonsign = rasipalan::findOrFail($user->moonsign);
@@ -55,7 +60,7 @@ class interestedProfileController extends Controller
         $mother_tongue = mothers_tongue::findOrFail($user->mother_tongue);
         $professional = professional::findOrFail($user->professional);
         $graduate = graduate::findOrFail($user->graduate);
-    	return view('interested.show',compact('horoscope','user','caste','subcaste','moonsign','star','mother_tongue','professional','graduate'));
+    	return view('interested.show',compact('dosham','dosatype','horoscope','user','caste','subcaste','moonsign','star','mother_tongue','professional','graduate'));
     }
     #Interested profile remove
     public function delete(User $user)

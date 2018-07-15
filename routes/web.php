@@ -82,6 +82,8 @@ Route::group(['middleware' => ['auth', 'userLog',]], function () {
     Route::get('/myprofile','HomeController@myprofile');
     
     #UserController Route
+    Route::get('/user/update-horoscope', 'HoroscopesEditController@editHoroscope');
+    Route::patch('/user/update-horoscope', 'HoroscopesEditController@updateHoroscope');
     Route::get('/user/update-profile1', 'UserController@updateProfile1');
     Route::patch('/user/update-profile1', 'UserController@update1');
     Route::get('/user/remove-profile', 'UserController@removepic');

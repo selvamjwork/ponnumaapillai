@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\caste;
+use App\scrollingmessage;
 use Session;
 use Validator;
 
-class CasteController extends Controller
+class ScrollingMessageController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -19,14 +20,14 @@ class CasteController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'caste_name' => 'required|max:255',
+            'scrolling_message' => 'required|max:1000',
         ]);
     }
 
     public function index()
     {
-    	$caste = caste::paginate(5);
-    	return view ('admin.manage-caste.index',compact('caste'));
+    	$scrollingmessage = scrollingmessage::paginate(5);
+    	return view ('admin.manage-scrollingmessage.index',compact('scrollingmessage'));
     }
 
     /**
@@ -38,11 +39,12 @@ class CasteController extends Controller
      */
     public function store(Request $request)
     {
+
         $requestData = $request->all();
         $this->validator($request->all())->validate();
-        caste::create($requestData);
-        Session::flash('success', 'Caste Added Successfully Done !!!');
-        return redirect('admin/caste');
+        scrollingmessage::create($requestData);
+        Session::flash('success', 'Scrolling Message Added Successfully Done !!!');
+        return redirect('admin/scrollingmessage');
     }
 
     /**
@@ -54,8 +56,8 @@ class CasteController extends Controller
      */
     public function edit($id)
     {
-        $caste = caste::findOrFail($id);
-        return view('admin.manage-caste.edit', compact('caste'));
+        $scrollingmessage = scrollingmessage::findOrFail($id);
+        return view('admin.manage-scrollingmessage.edit', compact('scrollingmessage'));
     }
 
     /**
@@ -70,17 +72,17 @@ class CasteController extends Controller
     {
     	$requestData = $request->all();
         var_dump($requestData);
-        $caste = caste::findOrFail($id);
-        $caste->update($requestData);
-        Session::flash('success', 'Caste Update Successfully Done !!!');
-        return redirect('admin/caste');
+        $scrollingmessage = scrollingmessage::findOrFail($id);
+        $scrollingmessage->update($requestData);
+        Session::flash('success', 'Scrolling Message Update Successfully Done !!!');
+        return redirect('admin/scrollingmessage');
     }
 
     public function destroy($id)
     {
-        $caste = caste::findOrFail($id);
-        $caste->delete();
-        Session::flash('success', 'Caste Deleted Successfully Done !!!');        
-        return redirect('admin/caste');
+        $scrollingmessage = scrollingmessage::findOrFail($id);
+        $scrollingmessage->delete();
+        Session::flash('success', 'Scrolling Message Deleted Successfully Done !!!');        
+        return redirect('admin/scrollingmessage');
     }
 }

@@ -38,26 +38,12 @@
                       <div class="card-body">
                           <ul class="list-group list-group-unbordered mb-3">
                               <div class="row">
-                                  <div class="col-md-4 text-center">
-                                      <div class="widget-user-header">
-                                          <div class="widget-user-image">
-                                              <div>
-                                                  <a href="/images/uploads/profile_pic/{{$user->profile_pic}}">           
-                                                    <img class="img-bordered elevation-1  mb-3" src="/images/uploads/profile_pic/{{$user->profile_pic}}" height="200px" width="200px" alt="{{$user->name}}">
-                                                  </a>
-                                                </div>
-                                          </div>
-                                      </div>
+                                  <div class="col-md-6 pb-1">
+                                      <li class="list-group-item"> <strong>Matri ID</strong> <a class="float-right">{{ $user->user_id }}</a> </li>
                                   </div>
-                                  <div class="col-md-8">
-                                      <ul class="list-group list-group-unbordered mb-3">
-                                          <li class="list-group-item">
-                                              <b>Matri ID</b> <a class="float-right">{{ $user->user_id }}</a>
-                                          </li>
-                                          <li class="list-group-item">
-                                              <b>Profile Created</b> <a class="float-right">{{$user->created_at->day}}-{{$user->created_at->month}}-{{$user->created_at->year}}</a>
-                                          </li>
-                                      </ul>
+                                  <div class="col-md-6 pb-1">
+                                      <li class="list-group-item"> <strong>Profile Created</strong> <a class="float-right">  {{$user->created_at->day}}-{{$user->created_at->month}}-{{$user->created_at->year}}</a> 
+                                      </li>
                                   </div>
                               </div>
                               <div class="row">
@@ -65,11 +51,8 @@
                                       <li class="list-group-item"> <strong>Name</strong> <a class="float-right">{{ $user->name }}</a> </li>
                                   </div>
                                   <div class="col-md-6 pb-1">
-                                      <li class="list-group-item"> <strong>Gender</strong> <a class="float-right">@if($user->gender == 1)
-                        Male
-                        @else
-                        Female
-                        @endif</a> </li>
+                                      <li class="list-group-item"> <strong>Gender</strong> <a class="float-right">  @if($user->gender == 1) Male @else Female @endif</a> 
+                                      </li>
                                   </div>
                               </div>
                               <div class="row">
@@ -218,10 +201,10 @@
                               </div>
                               <div class="row">
                                   <div class="col-md-6 pb-1">
-                                      <li class="list-group-item"> <strong>Dasa Type</strong> <a class="float-right">{{$star->dosatype}}</a> </li>
+                                      <li class="list-group-item"> <strong>Dasa Type</strong> <a class="float-right">{{$dosatype->dosatype_name}}</a> </li>
                                   </div>
                                   <div class="col-md-6 pb-1">
-                                      <li class="list-group-item"> <strong>Dosham</strong> <a class="float-right">{{$star->dosham}}</a> </li>
+                                      <li class="list-group-item"> <strong>Dosham</strong> <a class="float-right">{{$dosham->dosham_name}}</a> </li>
                                   </div>
                               </div>
                               <div class="row">
@@ -237,164 +220,164 @@
                                                                 <tr>
                                                                     <td id="rTD1" align="middle" width="80" height="80">
                                                                       @if($value->raasi_sun == 1)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->raasi_moon == 1)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->raasi_mars == 1)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->raasi_mercury == 1)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->raasi_jupiter == 1)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->raasi_venus == 1)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->raasi_saturn == 1)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->raasi_raagu == 1)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->raasi_kethu == 1)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->raasi_lagna == 1)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td id="rTD2" align="middle" width="80" height="80">
                                                                       @if($value->raasi_sun == 2)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->raasi_moon == 2)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->raasi_mars == 2)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->raasi_mercury == 2)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->raasi_jupiter == 2)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->raasi_venus == 2)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->raasi_saturn == 2)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->raasi_raagu == 2)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->raasi_kethu == 2)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->raasi_lagna == 2)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td id="rTD3" align="middle" width="80" height="80">
                                                                       @if($value->raasi_sun == 3)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->raasi_moon == 3)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->raasi_mars == 3)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->raasi_mercury == 3)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->raasi_jupiter == 3)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->raasi_venus == 3)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->raasi_saturn == 3)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->raasi_raagu == 3)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->raasi_kethu == 3)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->raasi_lagna == 3)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td id="rTD4" align="middle" width="80" height="80">
                                                                       @if($value->raasi_sun == 4)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->raasi_moon == 4)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->raasi_mars == 4)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->raasi_mercury == 4)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->raasi_jupiter == 4)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->raasi_venus == 4)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->raasi_saturn == 4)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->raasi_raagu == 4)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->raasi_kethu == 4)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->raasi_lagna == 4)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td id="rTD5" align="middle" width="80" height="80">
                                                                       @if($value->raasi_sun == 12)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->raasi_moon == 12)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->raasi_mars == 12)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->raasi_mercury == 12)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->raasi_jupiter == 12)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->raasi_venus == 12)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->raasi_saturn == 12)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->raasi_raagu == 12)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->raasi_kethu == 12)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->raasi_lagna == 12)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td align="middle" colSpan="2" rowSpan="2">
@@ -404,228 +387,228 @@
                                                                     </td>
                                                                     <td id="rTD6" align="middle" width="80" height="80">
                                                                       @if($value->raasi_sun == 5)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->raasi_moon == 5)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->raasi_mars == 5)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->raasi_mercury == 5)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->raasi_jupiter == 5)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->raasi_venus == 5)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->raasi_saturn == 5)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->raasi_raagu == 5)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->raasi_kethu == 5)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->raasi_lagna == 5)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td id="rTD7" align="middle" width="80" height="80">@if($value->raasi_sun == 11)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->raasi_moon == 11)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->raasi_mars == 11)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->raasi_mercury == 11)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->raasi_jupiter == 11)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->raasi_venus == 11)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->raasi_saturn == 11)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->raasi_raagu == 11)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->raasi_kethu == 11)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->raasi_lagna == 11)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif</td>
                                                                     <td id="rTD8" align="middle" width="80" height="80">
                                                                       @if($value->raasi_sun == 6)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->raasi_moon == 6)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->raasi_mars == 6)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->raasi_mercury == 6)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->raasi_jupiter == 6)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->raasi_venus == 6)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->raasi_saturn == 6)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->raasi_raagu == 6)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->raasi_kethu == 6)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->raasi_lagna == 6)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td id="rTD9" align="middle" width="80" height="80">
                                                                       @if($value->raasi_sun == 10)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->raasi_moon == 10)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->raasi_mars == 10)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->raasi_mercury == 10)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->raasi_jupiter == 10)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->raasi_venus == 10)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->raasi_saturn == 10)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->raasi_raagu == 10)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->raasi_kethu == 10)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->raasi_lagna == 10)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td id="rTD10" align="middle" width="80" height="80">
                                                                       @if($value->raasi_sun == 9)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->raasi_moon == 9)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->raasi_mars == 9)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->raasi_mercury == 9)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->raasi_jupiter == 9)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->raasi_venus == 9)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->raasi_saturn == 9)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->raasi_raagu == 9)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->raasi_kethu == 9)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->raasi_lagna == 9)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td id="rTD11" align="middle" width="80" height="80">
                                                                       @if($value->raasi_sun == 8)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->raasi_moon == 8)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->raasi_mars == 8)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->raasi_mercury == 8)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->raasi_jupiter == 8)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->raasi_venus == 8)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->raasi_saturn == 8)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->raasi_raagu == 8)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->raasi_kethu == 8)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->raasi_lagna == 8)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td id="rTD12" align="middle" width="80" height="80">
                                                                       @if($value->raasi_sun == 7)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->raasi_moon == 7)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->raasi_mars == 7)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->raasi_mercury == 7)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->raasi_jupiter == 7)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->raasi_venus == 7)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->raasi_saturn == 7)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->raasi_raagu == 7)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->raasi_kethu == 7)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->raasi_lagna == 7)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif</td>
                                                                 </tr>
                                                             </tdbody>
@@ -647,163 +630,163 @@
                                                                 <tr>
                                                                     <td id="aTD1" align="middle" width="80" height="80">
                                                                       @if($value->amsam_sun == 1)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->amsam_moon == 1)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->amsam_mars == 1)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->amsam_mercury == 1)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->amsam_jupiter == 1)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->amsam_venus == 1)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->amsam_saturn == 1)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->amsam_raagu == 1)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->amsam_kethu == 1)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->amsam_lagna == 1)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif</td>
                                                                     <td id="aTD2" align="middle" width="80" height="80">
                                                                       @if($value->amsam_sun == 2)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->amsam_moon == 2)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->amsam_mars == 2)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->amsam_mercury == 2)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->amsam_jupiter == 2)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->amsam_venus == 2)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->amsam_saturn == 2)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->amsam_raagu == 2)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->amsam_kethu == 2)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->amsam_lagna == 2)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td id="aTD3" align="middle" width="80" height="80">
                                                                       @if($value->amsam_sun == 3)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->amsam_moon == 3)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->amsam_mars == 3)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->amsam_mercury == 3)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->amsam_jupiter == 3)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->amsam_venus == 3)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->amsam_saturn == 3)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->amsam_raagu == 3)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->amsam_kethu == 3)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->amsam_lagna == 3)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td id="aTD4" align="middle" width="80" height="80">
                                                                       @if($value->amsam_sun == 4)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->amsam_moon == 4)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->amsam_mars == 4)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->amsam_mercury == 4)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->amsam_jupiter == 4)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->amsam_venus == 4)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->amsam_saturn == 4)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->amsam_raagu == 4)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->amsam_kethu == 4)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->amsam_lagna == 4)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td id="aTD5" align="middle" width="80" height="80">
                                                                       @if($value->amsam_sun == 12)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->amsam_moon == 12)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->amsam_mars == 12)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->amsam_mercury == 12)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->amsam_jupiter == 12)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->amsam_venus == 12)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->amsam_saturn == 12)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->amsam_raagu == 12)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->amsam_kethu == 12)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->amsam_lagna == 12)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td align="middle" colSpan="2" rowSpan="2">
@@ -813,230 +796,230 @@
                                                                     </td>
                                                                     <td id="aTD6" align="middle" width="80" height="80">
                                                                       @if($value->amsam_sun == 5)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->amsam_moon == 5)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->amsam_mars == 5)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->amsam_mercury == 5)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->amsam_jupiter == 5)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->amsam_venus == 5)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->amsam_saturn == 5)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->amsam_raagu == 5)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->amsam_kethu == 5)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->amsam_lagna == 5)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td id="aTD7" align="middle" width="80" height="80">
                                                                       @if($value->amsam_sun == 11)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->amsam_moon == 11)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->amsam_mars == 11)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->amsam_mercury == 11)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->amsam_jupiter == 11)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->amsam_venus == 11)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->amsam_saturn == 11)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->amsam_raagu == 11)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->amsam_kethu == 11)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->amsam_lagna == 11)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td id="aTD8" align="middle" width="80" height="80">
                                                                       @if($value->amsam_sun == 6)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->amsam_moon == 6)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->amsam_mars == 6)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->amsam_mercury == 6)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->amsam_jupiter == 6)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->amsam_venus == 6)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->amsam_saturn == 6)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->amsam_raagu == 6)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->amsam_kethu == 6)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->amsam_lagna == 6)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td id="aTD9" align="middle" width="80" height="80">
                                                                       @if($value->amsam_sun == 10)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->amsam_moon == 10)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->amsam_mars == 10)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->amsam_mercury == 10)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->amsam_jupiter == 10)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->amsam_venus == 10)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->amsam_saturn == 10)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->amsam_raagu == 10)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->amsam_kethu == 10)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->amsam_lagna == 10)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td id="aTD10" align="middle" width="80" height="80">
                                                                       @if($value->amsam_sun == 9)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->amsam_moon == 9)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->amsam_mars == 9)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->amsam_mercury == 9)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->amsam_jupiter == 9)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->amsam_venus == 9)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->amsam_saturn == 9)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->amsam_raagu == 9)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->amsam_kethu == 9)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->amsam_lagna == 9)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td id="aTD11" align="middle" width="80" height="80">
                                                                       @if($value->amsam_sun == 8)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->amsam_moon == 8)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->amsam_mars == 8)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->amsam_mercury == 8)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->amsam_jupiter == 8)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->amsam_venus == 8)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->amsam_saturn == 8)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->amsam_raagu == 8)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->amsam_kethu == 8)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->amsam_lagna == 8)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                     <td id="aTD12" align="middle" width="80" height="80">
                                                                       @if($value->amsam_sun == 7)  
-                                                                      சூ-Su
+                                                                      சூ
                                                                       @endif
                                                                       @if($value->amsam_moon == 7)
-                                                                      ச- Mo
+                                                                      ச
                                                                       @endif
                                                                       @if($value->amsam_mars == 7)
-                                                                      செ- Ma
+                                                                      செ
                                                                       @endif
                                                                       @if($value->amsam_mercury == 7)
-                                                                      பு-Me
+                                                                      பு
                                                                       @endif
                                                                       @if($value->amsam_jupiter == 7)
-                                                                      கு-Ju
+                                                                      கு
                                                                       @endif
                                                                       @if($value->amsam_venus == 7)
-                                                                      சு-Ve
+                                                                      சு
                                                                       @endif
                                                                       @if($value->amsam_saturn == 7)
-                                                                      சனி-Sa
+                                                                      சனி
                                                                       @endif
                                                                       @if($value->amsam_raagu == 7)
-                                                                      ராகு-Ra
+                                                                      ரா
                                                                       @endif
                                                                       @if($value->amsam_kethu == 7)
-                                                                      கேது-Kethu
+                                                                      கே
                                                                       @endif
                                                                       @if($value->amsam_lagna == 7)
-                                                                      லக்-La
+                                                                      ல
                                                                       @endif
                                                                     </td>
                                                                 </tr>

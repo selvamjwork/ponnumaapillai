@@ -29,16 +29,6 @@
         </div>
         {!! Form::model($user, ['method' => 'PATCH', 'url' => ['/user/create-profile1'],'role'=>'form','class' => 'was-validated','files' => true ]) !!}
         <div class="form-bottom">
-            <div class="form-group row{{ $errors->has('profile_pic') ? 'has-error' : ''}}">
-                <div class="col-md-8">
-                    {!! Form::label('profile_pic', 'Profile Pic', ['class' => 'control-label']) !!}
-                    <input type="file" id="profile_pic" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" name="profile_pic">
-                    <!-- {!! Form::file('profile_pic', null, ['onchange'=>'loadFile(event)','class' => 'form-control']) !!} -->
-                    {!! $errors->first('profile_pic', '
-                    <p class="help-block">:message</p>') !!}
-                </div>
-            </div>
-
             <div class="form-group row{{ $errors->has('name') ? 'has-error' : ''}}">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <span><i class="glyphicon glyphicon-asterisk text-danger"></i></span> {!! Form::label('name', 'Name (பெயர்)', ['class' => 'control-label']) !!} {!! Form::text('name', null, ['readonly','required' => 'required','placeholder'=>'Name (பெயர்)','class' => 'form-control']) !!} {!! $errors->first('name', '

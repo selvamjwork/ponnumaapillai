@@ -12,8 +12,13 @@ use DB;
 use App\graduate;
 use App\professional;
 use App\natchathiram;
+use App\rasipalan;
+use App\mothers_tongue;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
+use App\horoscope;
+use App\dosatype;
+use App\dosham;
 
 class AdminProfileSearchController extends Controller
 {
@@ -2349,7 +2354,7 @@ class AdminProfileSearchController extends Controller
             else
             {
                 $casteid = DB::table('caste')->get(); 
-        $subadmins = DB::table('subadmins')->get(); 
+                $subadmins = DB::table('subadmins')->get(); 
                 return view('admin.search.searchform',compact('graduate','caste','professional','starArray','casteid','subadmins'));
             }
         }
@@ -2366,8 +2371,18 @@ class AdminProfileSearchController extends Controller
      */
     public function show(User $user)
     {
+        $horoscope = horoscope::where('user_id',$user->id)->get();
+        $caste = caste::findOrFail($user->caste);
+        $subcaste = subcaste::findOrFail($user->subsect);
+        $moonsign = rasipalan::findOrFail($user->moonsign);
+        $star = natchathiram::findOrFail($user->star);
+        $mother_tongue = mothers_tongue::findOrFail($user->mother_tongue);
+        $professional = professional::findOrFail($user->professional);
+        $graduate = graduate::findOrFail($user->graduate);
+        $dosatype = dosatype::findOrFail($user->dosatype);
+        $dosham = dosham::findOrFail($user->dosham);
         $casteid = DB::table('caste')->get(); 
         $subadmins = DB::table('subadmins')->get(); 
-        return view('admin.search.view',compact('user','casteid','subadmins'));
+        return view('admin.search.view',compact('dosatype','dosham','caste','subcaste','moonsign','star','mother_tongue','professional','graduate','horoscope','user','casteid','subadmins'));
     }
 }

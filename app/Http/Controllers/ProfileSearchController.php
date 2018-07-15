@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\View;
 use Session;
 use Illuminate\Support\Facades\Redirect;
 use App\horoscope;
+use App\dosatype;
+use App\dosham;
 
 class ProfileSearchController extends Controller
 {
@@ -2803,6 +2805,8 @@ class ProfileSearchController extends Controller
     {
         $currentUser = \Auth::user();
         $horoscope = horoscope::where('user_id',$user->id)->get();
+        $dosatype = dosatype::findOrFail($user->dosatype);
+        $dosham = dosham::findOrFail($user->dosham);
         $caste = caste::findOrFail($user->caste);
         $subcaste = subcaste::findOrFail($user->subsect);
         $moonsign = rasipalan::findOrFail($user->moonsign);
@@ -2812,7 +2816,7 @@ class ProfileSearchController extends Controller
         $graduate = graduate::findOrFail($user->graduate);
         $interestedid = interestedprofile::where('user_id','=',$currentUser->id)->where('isDeleted','=','no')->where('interesteduserid','=',$user->id)->get();
         // dd($interestedid);
-        return view('search.view',compact('horoscope','interestedid','user','caste','subcaste','moonsign','star','mother_tongue','professional','graduate'));
+        return view('search.view',compact('dosatype','dosham','horoscope','interestedid','user','caste','subcaste','moonsign','star','mother_tongue','professional','graduate'));
     }
     #Interested profile store
     public function create(User $user)

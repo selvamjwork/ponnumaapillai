@@ -1,6 +1,6 @@
 @extends('admin.layout.home')
 
-@section('title') Admin Caste Edit @endsection
+@section('title') Admin Scrolling Message Edit @endsection
 
 @section('content')
 <div class="content-wrapper">
@@ -24,22 +24,22 @@
                 <div class="col">
                     <div class="card card-outline card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Edit Caste</h3>
+                            <h3 class="card-title">Edit Scrolling Message</h3>
                         </div>
                         <div class="card-body">
-                            {!! Form::model($caste, ['method' => 'PATCH','url' => ['/admin/caste', $caste->id],'files' => true ]) !!}
+                            {!! Form::model($scrollingmessage, ['method' => 'PATCH','url' => ['/admin/scrollingmessage', $scrollingmessage->id],'files' => true ]) !!}
                                 {{ csrf_field() }}
-                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <label for="caste_name">Edit Caste </label>
-                                    {!! Form::text('caste_name', null, ['placeholder'=>'Edit Caste ','class' => 'form-control']) !!}
-                                    @if ($errors->has('caste_name'))
+                                <div class="form-group{{ $errors->has('scrolling_message') ? ' has-error' : '' }}">
+                                    <label for="scrolling_message">Edit Scrolling Message </label>
+                                    {!! Form::text('scrolling_message', null, ['placeholder'=>'Edit Scrolling Message ','class' => 'form-control']) !!}
+                                    @if ($errors->has('scrolling_message'))
                                         <span class="help-block">
-                                            <strong>{{ $errors->first('caste_name') }}</strong>
+                                            <strong>{{ $errors->first('scrolling_message') }}</strong>
                                         </span>
                                     @endif
                                 </div>
                                 <div class="">
-                                    <button type="submit" class="btn btn-success">Edit Caste</button>
+                                    <button type="submit" class="btn btn-success">Edit Scrolling Message</button>
                                 </div>
                             {!! Form::close() !!}
                         </div>

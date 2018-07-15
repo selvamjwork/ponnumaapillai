@@ -57,7 +57,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6"><a class="float-sm-right da text-danger" href="{{ url('/profile/search/' . $us->id) }}">View Profile <em class="fa fa fa-forward" aria-hidden="true"></em></a></div>
+                        <div class="col-md-6">
+                            <a class="float-sm-left da text-danger" href="#"></a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="float-sm-right da text-danger" href="{{ url('/profile/search/' . $us->id) }}">View Profile <em class="fa fa fa-forward" aria-hidden="true"></em></a>
+                        </div>
                     </div>
                 </div>
             </div>

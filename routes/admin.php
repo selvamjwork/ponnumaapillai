@@ -16,6 +16,16 @@ Route::group(['middleware'],function(){
 		return view('admin.home',compact('casteid','subadmins'));
 	});
 
+	// Caste Controller
+    Route::resource('/caste', 'Admin\CasteController');
+    // Caste Controller
+    Route::resource('/sub-caste', 'Admin\SubCasteController');
+    // Caste Controller
+    Route::resource('/scrollingmessage', 'Admin\ScrollingMessageController');
+
+    Route::get('/update-horoscope/{user}', 'Admin\HoroscopesEditController@editHoroscope');
+    Route::patch('/update-horoscope', 'Admin\HoroscopesEditController@updateHoroscope');
+
 	Route::get('/dashboard/no-of-user','Admin\ReportPageController@index');
 	Route::get('/dashboard/paymentdetails','Admin\ReportPageController@index');
 	Route::get('/dashboard/castewisereport','Admin\ReportPageController@castewisereport');

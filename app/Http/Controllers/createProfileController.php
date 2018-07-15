@@ -258,7 +258,7 @@ class createProfileController extends Controller
 		$from = $formValue['year'];
         $to = date('Y');
         $formValue['age'] = $to-$from;
-        $formValue['payment_completed'] = '0';
+        $formValue['payment_completed'] = '1';
 		if ($request->hasFile('profile_pic')) {
 			$path ='images/uploads/profile_pic';
 			$file = $request->file('profile_pic');
@@ -300,6 +300,8 @@ class createProfileController extends Controller
     	$user = \Auth::user();
     	$horoscope = horoscope::where('user_id',$user->id)->get();
     	//dd($user);
+    	$dosatype = dosatype::findOrFail($user->dosatype);
+    	$dosham = dosham::findOrFail($user->dosham);
     	$caste = caste::findOrFail($user->caste);
         $subcaste = subcaste::findOrFail($user->subsect);
         $moonsign = rasipalan::findOrFail($user->moonsign);
@@ -307,7 +309,7 @@ class createProfileController extends Controller
         $mother_tongue = mothers_tongue::findOrFail($user->mother_tongue);
         $professional = professional::findOrFail($user->professional);
         $graduate = graduate::findOrFail($user->graduate);
-    	return view('profile.preview',compact('horoscope','user','graduate','professional','mother_tongue','star','moonsign','subcaste','caste'));
+    	return view('profile.preview',compact('dosatype','dosham','horoscope','user','graduate','professional','mother_tongue','star','moonsign','subcaste','caste'));
     }
     public function createprofilesms(Request $request)
     {

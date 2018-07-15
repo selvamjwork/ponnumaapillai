@@ -10,7 +10,13 @@ class caste extends Model
 {
     protected $table = 'caste';
 
+    public $timestamps = false;
+
     protected $fillable = ['id','caste_name'];
+
+    public function subcaste(){
+        return $this->hasMany('App\subcaste');
+    }
 
     public function selectSubsect($id,$selectedSubsect)
     {

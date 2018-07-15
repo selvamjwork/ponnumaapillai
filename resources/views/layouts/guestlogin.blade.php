@@ -34,6 +34,7 @@
             </div>
         </div>
     </nav>
+
     <!-- body code goes here -->
 
     <header>
@@ -46,6 +47,25 @@
             </div>
         </div>
     </header>
+
+    <div id="id1" class="d-none">
+        <center>
+        <nav>
+           <div class="align-self-center">
+                <a class="align-self-center" href="/admin/login">Go To Admin Page</a>
+            </div>
+        </nav>
+        </center>
+    </div>
+    <div id="id2" class="d-none">
+        <center>
+        <nav>
+           <div class="align-self-center">
+                <a class="align-self-center" href="/subadmin/login">Go To Subadmin Page</a>
+            </div>
+        </nav>
+        </center>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-xl-9 col-lg-9 pb-3 pt-3">
@@ -86,5 +106,25 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap-4.0.0.js"></script>
+    <script src="js/jquery.jkey.js"></script>
+    <script type="text/javascript">
+        $(document).jkey('alt+a',function(){
+            var hasClass = document.getElementById("id1").classList.contains('d-none');
+            if (hasClass === true) {
+                document.getElementById("id1").classList.remove("d-none");
+            } else {
+                document.getElementById("id1").classList.add("d-none");
+            }
+        });
+
+        $(document).jkey('alt+s',function(){
+            var hasClass = document.getElementById("id2").classList.contains('d-none');
+            if (hasClass === true) {
+                document.getElementById("id2").classList.remove("d-none");
+            } else {
+                document.getElementById("id2").classList.add("d-none");
+            }
+        });
+    </script>
 </body>
 </html>

@@ -28,14 +28,14 @@
                             <h3 class="card-title"><b>{{$user->user_id}} - {{$user->name}}</b></h3>
                         </div>
                         <div class="card-body">
-                            <ul class="list-group list-group-unbordered mb-3">
-                                <div class="row">
-                                    <img class="center-block" src="/images/uploads/profile_pic/{{$user->profile_pic}}" />
-                                </div>
-                            </ul>
+                            <center>
+                                <img height="500" width="400" class="center-block" src="/images/uploads/profile_pic/{{$user->profile_pic}}" />
+                            </center>
                         </div>
-                        <div class="pull-right">
-                            <a class="btn btn-danger mb-3 d-print-none" href="javascript:window.print()">Print Photo</a>
+                        <div class="row">
+                            <div class="col-md-11">
+                                <a class="btn btn-danger float-sm-right mb-3 d-print-none" href="javascript:window.print()">Print Photo</a>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -47,6 +47,9 @@ class UserController extends Controller
 	{
 		$user = \Auth::user();
 
+		$dosatype = dosatype::findOrFail($user->dosatype);
+        $dosham = dosham::findOrFail($user->dosham);
+
 		$horoscope = horoscope::where('user_id',$user->id)->get();
 		
 		#dosatype dropdown
@@ -161,7 +164,7 @@ class UserController extends Controller
 			$qualificationArray[$value['id']] =ucfirst($value['qualification_name']);
 		}
 
-		return view('updateProfile.updateProfile1',compact(['horoscope','doshamArray', 'dosatypeArray', 'user','casteArray','rasipalanArray','starArray','mothers_tongueArray','dayArray','monthArray','yearArray','hourArray','minuteArray','secondArray','qualificationArray','graduateArray','professionalArray']));
+		return view('updateProfile.updateProfile1',compact(['dosham','dosatype','horoscope','doshamArray', 'dosatypeArray', 'user','casteArray','rasipalanArray','starArray','mothers_tongueArray','dayArray','monthArray','yearArray','hourArray','minuteArray','secondArray','qualificationArray','graduateArray','professionalArray']));
 	}
 
 	public function update1(Request $request)

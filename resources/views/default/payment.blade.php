@@ -1,8 +1,6 @@
 @extends('layouts.payment')
 @section('content')
 
-<form class="form-horizontal" method="POST" action="{{ url('/checkout') }}">
-            {{ csrf_field() }}
 <div class="jumbotron" style="text-align:center;">
     <img class="homepage-logo-img" src="{{URL::to('/')}}/image/logo.png" width="100" height="100">
     <h4 class="nomargin">Ponnu Maapillai</h4>
@@ -21,9 +19,8 @@
             <td class="text-left"><h4><strong> Rs 600</strong></h4></td>
         </tr>
     </table>  
-    <input class="btn btn-success" type="submit" value="CheckOut">
+    <a class="btn btn-success" href="/home">Check Out</a>
 </div>
    
 </div>
- </form>
 @endsection

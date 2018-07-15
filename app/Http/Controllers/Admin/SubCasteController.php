@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\caste;
+use App\subcaste;
 use Session;
 use Validator;
 
-class CasteController extends Controller
+class SubCasteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,14 +20,19 @@ class CasteController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'caste_name' => 'required|max:255',
+            'subcaste_name' => 'required|max:255',
+            'caste_id' => 'required|max:255',
         ]);
     }
 
     public function index()
     {
-    	$caste = caste::paginate(5);
-    	return view ('admin.manage-caste.index',compact('caste'));
+    	$caste = caste::orderBy('id','ASC')->get()->toArray();
+        foreach ($caste as $Value) {
+            $casteArray[$Value['id']] = ucfirst($Value['caste_name']);
+        }
+    	$subcaste = subcaste::with(['caste'])->paginate(5);
+    	return view ('admin.manage-sub-caste.index',compact('subcaste','casteArray'));
     }
 
     /**
@@ -40,9 +46,9 @@ class CasteController extends Controller
     {
         $requestData = $request->all();
         $this->validator($request->all())->validate();
-        caste::create($requestData);
-        Session::flash('success', 'Caste Added Successfully Done !!!');
-        return redirect('admin/caste');
+        SubCaste::create($requestData);
+        Session::flash('success', 'Sub Caste Added Successfully Done !!!');
+        return redirect('admin/sub-caste');
     }
 
     /**
@@ -54,8 +60,12 @@ class CasteController extends Controller
      */
     public function edit($id)
     {
-        $caste = caste::findOrFail($id);
-        return view('admin.manage-caste.edit', compact('caste'));
+    	$caste = caste::orderBy('id','ASC')->get()->toArray();
+        foreach ($caste as $Value) {
+            $casteArray[$Value['id']] = ucfirst($Value['caste_name']);
+        }
+        $subcaste = SubCaste::findOrFail($id);
+        return view('admin.manage-sub-caste.edit', compact('subcaste','casteArray'));
     }
 
     /**
@@ -70,17 +80,17 @@ class CasteController extends Controller
     {
     	$requestData = $request->all();
         var_dump($requestData);
-        $caste = caste::findOrFail($id);
-        $caste->update($requestData);
-        Session::flash('success', 'Caste Update Successfully Done !!!');
-        return redirect('admin/caste');
+        $subcaste = SubCaste::findOrFail($id);
+        $subcaste->update($requestData);
+        Session::flash('success', 'Sub Caste Update Successfully Done !!!');
+        return redirect('admin/sub-caste');
     }
 
     public function destroy($id)
     {
-        $caste = caste::findOrFail($id);
-        $caste->delete();
-        Session::flash('success', 'Caste Deleted Successfully Done !!!');        
-        return redirect('admin/caste');
+        $subcaste = SubCaste::findOrFail($id);
+        $subcaste->delete();
+        Session::flash('success', 'Sub Caste Deleted Successfully Done !!!');        
+        return redirect('admin/sub-caste');
     }
 }

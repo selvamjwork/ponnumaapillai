@@ -12,6 +12,11 @@ class subcaste extends Model
 
     public $timestamps = false;
 
+    public function caste()
+    {
+        return $this->belongsTo('App\caste');
+    }
+
     protected $fillable =  ['subcaste_name','caste_id'];
 
     public function Validate(Request $data)
