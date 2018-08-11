@@ -4,7 +4,7 @@
 {!! Charts::assets() !!}
 @endsection
 
-@section('title') Caste Day Report @endsection
+@section('title') Admin Report @endsection
 
 @section('content')
 <div class="content-wrapper">
@@ -17,7 +17,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                        <li class="breadcrumb-item active">Caste Day Report </li>
+                        <li class="breadcrumb-item active">Admin Report </li>
                     </ol>
                 </div>
             </div>
@@ -29,10 +29,10 @@
                 <div class="col">
                     <div class="card card-outline card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Caste Day Report</h3>
+                            <h3 class="card-title">Admin Report</h3>
                         </div>
                         <div class="card-body">
-                            <form class="was-validated" action="{!! url('/admin/dashboard/castewisereport') !!}">
+                            <form class="was-validated" action="{!! url('/admin/dashboard/subadminwisereport') !!}">
                                 <div class="form-group row mr-3 ml-3">
                                     <div class="col-md-12">
                                         <label for="dateform" class="control-label">Date</label>
@@ -53,20 +53,20 @@
                                 </div>
                                 <hr>
                             </form>
-                            @if(!empty($requestAll) ||!empty($caste) || !empty($month_details) || !empty($month))
+                            @if(!empty($requestAll) ||!empty($subadmin) || !empty($month_details) || !empty($month))
                             <table class="table table-responsive text-center table-bordered mt-3">
                                 <tbody>
                                     <tr>
                                         <th>Date</th>
-                                        @foreach($caste as $cs)
-                                        <th>{!! $cs->caste_name !!}</th>
+                                        @foreach($subadmin as $admin)
+                                        <th>{!! $admin->name !!}</th>
                                         @endforeach
                                     </tr>
                                     @for($i=0;$i<$month_details["days_count"];$i++)
                                         <tr>
                                             <?php $date=str_pad(($i+1),2,0,STR_PAD_LEFT)."/".str_pad($month_details["month"],2,0,STR_PAD_LEFT)."/".date("Y")?>
                                             <td>{{$date}}</td>
-                                            @foreach($caste as $cs)
+                                            @foreach($subadmin as $cs)
                                                 @if(array_key_exists($cs->id,$month))
                                                 <!-- <?php $dateExist =  array_search($date, array_column($month[$cs->id], 'created_date')); ?> -->
                                                     @if($dateExist!==false &&   $month[$cs->id][$dateExist]['created_date']==$date))
@@ -84,6 +84,7 @@
                             </table>
                             @endif
                         </div>
+
                     </div>
                 </div>
             </div>

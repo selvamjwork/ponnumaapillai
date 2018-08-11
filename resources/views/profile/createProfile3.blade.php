@@ -20,9 +20,21 @@
 
 @section('heading') <div style="font-size: 16px" class="panel-heading text-center text-danger">Registration&nbsp;&nbsp;<i class="fa fa-arrow-right">&nbsp;&nbsp;<b>Create Profile</b> &nbsp;&nbsp;</i> <i class="fa fa-arrow-right">&nbsp;&nbsp;Payment Confirmation&nbsp;&nbsp; </i> <i class="fa fa-arrow-right">&nbsp;&nbsp;Search Profile</i></div> @endsection
 
-@section('content') @if(Session::has('message'))
-    <div class="alert alert-info"> {{Session::get('message')}} </div> 
-@endif 
+@if(Session::has('success'))
+            <div class="col-sm-6">
+                <div class="alert alert-success"> {{Session::get('success')}} </div> 
+            </div>
+        @endif
+        @if(Session::has('message')) 
+            <div class="col-sm-6">
+                <div class="alert alert-info"> {{Session::get('message')}} </div> 
+            </div>
+        @endif
+        @if(Session::has('error'))
+            <div class="col-sm-6">
+                <div class="alert alert-danger"> {{Session::get('error')}} </div> 
+            </div>
+        @endif
 <div class="card offset-xl-2 col-xl-8 border border-danger rounded mb-5">
     <div class="card-header bg-white mt-2">
         <div class="form-top">

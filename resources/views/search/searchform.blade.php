@@ -5,26 +5,20 @@
 @section('content')
 <div class="content-wrapper">
     <div class="content-header">
+        @if(Session::has('success'))
+                <div class="alert alert-success"> {{Session::get('success')}} </div> 
+        @endif
+        @if(Session::has('message')) 
+                <div class="alert alert-info"> {{Session::get('message')}} </div> 
+        @endif
+        @if(Session::has('error'))
+                <div class="alert alert-danger"> {{Session::get('error')}} </div> 
+        @endif
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0 text-dark">Welcome to Ponnu Maapillai - Search </h1>
                 </div>
-                @if(Session::has('success'))
-					<div class="col-sm-6">
-						<div class="alert alert-success"> {{Session::get('success')}} </div> 
-					</div>
-				@endif
-				@if(Session::has('message')) 
-					<div class="col-sm-6">
-						<div class="alert alert-info"> {{Session::get('message')}} </div> 
-					</div>
-				@endif
-				@if(Session::has('error'))
-					<div class="col-sm-6">
-						<div class="alert alert-danger"> {{Session::get('error')}} </div> 
-					</div>
-				@endif
             </div>
         </div>
     </div>

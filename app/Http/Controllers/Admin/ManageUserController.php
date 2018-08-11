@@ -227,7 +227,7 @@ class ManageUserController extends Controller
             'amsam_kethu' => $request->amsam_kethu,
             'amsam_lagna' => $request->amsam_lagna,
         ]);
-        $userid_generete = 'PM1000'  .$usercreate->id ;
+        $userid_generete = 'PM1'  .sprintf("%05d", $usercreate->id);
         $usercreate->user_id = $userid_generete;
         $usercreate->save();
         $userRole = UserRole::create(['user_id'=>$usercreate->id,'role'=>'user']);

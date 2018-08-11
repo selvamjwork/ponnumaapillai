@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableForScrollingmessage extends Migration
+class CreateTableForGallery extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateTableForScrollingmessage extends Migration
      */
     public function up()
     {
-        Schema::create('scrollingmessage', function (Blueprint $table) {
+        Schema::create('gallery', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('scrolling_message')->lenght(1000);
-	    $table->boolean('active')->default(true);
+            $table->string('title');
+            $table->string('image');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +28,6 @@ class CreateTableForScrollingmessage extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('scrollingmessage');
+        Schema::dropIfExists('gallery');
     }
 }

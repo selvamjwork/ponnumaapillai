@@ -3,21 +3,21 @@
 @section('content')
 <div class="content-wrapper">
     <div class="content-header">
+        @if(Session::has('status'))
+            <div class="alert alert-success"> {{Session::get('status')}} </div> 
+        @endif
+        @if(Session::has('message')) 
+            <div class="alert alert-info"> {{Session::get('message')}} </div> 
+        @endif
+        @if(Session::has('error'))
+            <div class="alert alert-danger"> {{Session::get('error')}} </div> 
+        @endif
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0 text-dark">Payment Status</h1>
                 </div>
             </div>
-            @if (session('status'))
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <div class="alert alert-success">
-                        <h1 class="m-0 text-dark">{{ session('status') }}</h1>
-                    </div>
-                </div>
-            </div>
-            @endif
         </div>
     </div>
     <section class="content">

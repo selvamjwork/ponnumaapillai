@@ -6,8 +6,7 @@
 <div>
   <div class="content-header">
       <div class="container-fluid">
-          <div class="row mb-2">
-              @if(Session::has('success'))
+        @if(Session::has('success'))
                 <div class="col-sm-6">
                   <div class="alert alert-success"> {{Session::get('success')}} </div> 
                 </div>
@@ -22,7 +21,7 @@
                   <div class="alert alert-danger"> {{Session::get('error')}} </div> 
                 </div>
               @endif
-              
+          <div class="row mb-2">
           </div>
       </div>
   </div>

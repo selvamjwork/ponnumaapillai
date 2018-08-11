@@ -61,6 +61,7 @@ class CreateUsersTable extends Migration
             $table->string('role')->default('user');
             $table->boolean('active')->default(true);
             $table->boolean('payment_completed')->default(0);
+            $table->timestamp('payment_date')->nullable();
             $table->boolean('profile_completed')->default(0);
             $table->boolean('admin_id')->default(0);
             $table->rememberToken();

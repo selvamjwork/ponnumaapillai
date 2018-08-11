@@ -814,6 +814,6 @@ class InstaController extends Controller
     }
     public function paymentfailure()
     {
-    return view ('pages.paymentfailed');
+      return view ('pages.paymentfailed');
     }
 }

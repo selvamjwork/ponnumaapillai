@@ -71,7 +71,7 @@ class VerificationController extends Controller
 		if(\Auth::check())
 		{
 			$user = \Auth::User();
-			$userid_generete = 'PM1000'  .$user->id ;
+			$userid_generete = 'PM1'  .sprintf("%05d", $user->id);
 			$user->user_id = $userid_generete;
 			$mobile_verification_num = intval( "0" . rand(1,9) . rand(0,9) . rand(0,9) . rand(0,9) . rand(0,9) . rand(0,9) );
 			$message = 'Your One Time Password is '.$mobile_verification_num.' in PONNU MAAPILLAI for Your Matrimony ID: ' . $userid_generete . ' & Registered Mobile No: '. $user->mobile;

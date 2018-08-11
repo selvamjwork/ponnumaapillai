@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Gallery;
 
-class ImageController extends Controller
+class GalleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        $images = Gallery::get();
+        return view('admin.manage-gallery.index',compact(['images']));
     }
 
     /**
@@ -23,7 +26,7 @@ class ImageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.manage-gallery.create');
     }
 
     /**
@@ -34,7 +37,22 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+
+        $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
+        $request->image->move(public_path('images'), $input['image']);
+
+
+        $input['title'] = $request->title;
+        Gallery::create($input);
+
+
+        return back()
+            ->with('success','Image Uploaded successfully.');
     }
 
     /**
@@ -79,6 +97,8 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Gallery::find($id)->delete();
+        return back()
+            ->with('success','Image removed successfully.');
     }
 }

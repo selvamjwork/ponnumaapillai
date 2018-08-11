@@ -54,7 +54,7 @@ Route::get('/paymentstatus', function () {
 Route::get('pdfview',array('as'=>'pdfview','uses'=>'ItemController@pdfview'));
 
 // Route::get('/verifyEmail/{token}', 'Auth\VerificationController@VerifyEmail');
-Route::group(['middleware' => ['auth', 'userLog',]], function () {
+Route::group(['middleware' => ['auth', 'userLog', 'userPaymentCheck']], function () {
 
     Route::get('/', function () {
         return redirect('/home');

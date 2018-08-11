@@ -35,10 +35,20 @@
         </div>
     </nav>
 
+<br><br><br>
     <!-- body code goes here -->
-
+    
     <header>
-        <div class="container pt-5" id="marquee">
+        <div class="container" id="marquee">
+             @if(Session::has('success'))
+                    <div class="alert alert-success"> {{Session::get('success')}} </div>
+            @endif
+            @if(Session::has('message')) 
+                    <div class="alert alert-info"> {{Session::get('message')}} </div> 
+            @endif
+            @if(Session::has('error'))
+                    <div class="alert alert-danger"> {{Session::get('error')}} </div> 
+            @endif
             <div class="row mt-5">
                 @if(isset($scrollingmessage))
                     @foreach($scrollingmessage as $message)

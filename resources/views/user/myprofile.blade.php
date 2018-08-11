@@ -4,26 +4,20 @@
 
 <div class="content-wrapper invoice">
   <div class="content-header">
+    @if(Session::has('success'))
+        <div class="alert alert-success"> {{Session::get('success')}} </div> 
+      @endif
+      @if(Session::has('message')) 
+          <div class="alert alert-info"> {{Session::get('message')}} </div> 
+      @endif
+      @if(Session::has('error'))
+          <div class="alert alert-danger"> {{Session::get('error')}} </div> 
+      @endif
       <div class="container-fluid">
           <div class="row mb-2">
               <div class="col-sm-6">
                   <h1 class="m-0 text-dark">Welcome to Ponnu Maapillai</h1>
               </div>
-              @if(Session::has('success'))
-                <div class="col-sm-6">
-                  <div class="alert alert-success"> {{Session::get('success')}} </div> 
-                </div>
-              @endif
-              @if(Session::has('message')) 
-                <div class="col-sm-6">
-                  <div class="alert alert-info"> {{Session::get('message')}} </div> 
-                </div>
-              @endif
-              @if(Session::has('error'))
-                <div class="col-sm-6">
-                  <div class="alert alert-danger"> {{Session::get('error')}} </div> 
-                </div>
-              @endif
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                 @if(Auth::user()->profile_completed ==1)
@@ -49,10 +43,8 @@
                                   <div class="col-md-4 text-center">
                                       <div class="widget-user-header">
                                           <div class="widget-user-image">
-                                              <div>
-                                                  <a href="/images/uploads/profile_pic/{{$users->profile_pic}}">           
-                                                    <img class="img-bordered elevation-1  mb-3" src="/images/uploads/profile_pic/{{$users->profile_pic}}" height="200px" width="200px" alt="{{$users->name}}">
-                                                  </a>
+                                              <div>        
+                                                  <img class="img-bordered elevation-1  mb-3" src="/images/uploads/profile_pic/{{$users->profile_pic}}" height="200px" width="200px" alt="{{$users->name}}">
                                                 </div>
                                           </div>
                                       </div>

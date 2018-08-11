@@ -62,41 +62,22 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/admin/dashboard/castewisereport?subadmins=subadmins" class="nav-link">
-                                <i class="fa fa-calendar-o nav-icon"></i>
-                                <p>Admin Date Wise</p>
-                            </a>
-                        </li>
-                        <!-- <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-database"></i>
-                                <p>
-                                    Reports
-                                    <i class="right fa fa-angle-left"></i>
-                                </p>
-                            </a>
+                        <li class="nav-item has-treeview"> <a href="#" class="nav-link "> <i class="nav-icon fa fa-database"></i>
+                        <p> Reports <i class="right fa fa-angle-left"></i> </p>
+                        </a>
                             <ul class="nav nav-treeview" style="display: none;">
-                                <li class="nav-item">
-                                    <a href="/admin/dashboard/castewisereport?subadmins=subadmins" class="nav-link">
-                                        <i class="fa fa-calendar-o nav-icon"></i>
-                                        <p>Admin Date Wise</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="admin_acaste.html" class="nav-link">
-                                        <i class="fa fa-flag-o nav-icon"></i>
-                                        <p>Caste Wise</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="admin_asub.html" class="nav-link">
-                                        <i class="fa fa-user-secret nav-icon"></i>
-                                        <p>Sub Admin</p>
-                                    </a>
-                                </li>
+                                <li class="nav-item"> <a href="/admin/dashboard/adminwisecastereport" class="nav-link"> <i class="fa fa-calendar-o nav-icon"></i>
+                                <p>Admin Date Wise</p>
+                                </a> </li>
+                                <li class="nav-item"> <a href="/admin/dashboard/castewisereport" class="nav-link"> <i class="fa fa-flag-o nav-icon"></i>
+                                <p>Caste Wise</p>
+                                </a> </li>
+                                <li class="nav-item"> <a href="/admin/dashboard/subadminwisereport" class="nav-link"> <i class="fa fa-user-secret nav-icon"></i>
+                                <p>Sub Admin</p>
+                                </a> </li>
                             </ul>
-                        </li> -->
+                            <hr>
+                        </li>
                         <li class="nav-item">
                             <a href="/admin/manage-subadmin" class="nav-link">
                                 <i class="fa fa-adn nav-icon"></i>
@@ -143,6 +124,14 @@
                                 <i class="fa fa-users nav-icon"></i>
                                 <p>
                                     Manage Users
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{url('/admin/manage-gallery')}}" class="nav-link ">
+                                <i class="fa fa-image nav-icon"></i>
+                                <p>
+                                    Manage Gallery
                                 </p>
                             </a>
                         </li>

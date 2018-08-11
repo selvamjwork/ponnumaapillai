@@ -28,6 +28,8 @@ Route::group(['middleware'],function(){
 
 	Route::get('/dashboard/no-of-user','Admin\ReportPageController@index');
 	Route::get('/dashboard/paymentdetails','Admin\ReportPageController@index');
+	Route::get('/dashboard/adminwisecastereport','Admin\ReportPageController@adminwisecastereport');
+	Route::get('/dashboard/subadminwisereport','Admin\ReportPageController@SubadminWiseReport');
 	Route::get('/dashboard/castewisereport','Admin\ReportPageController@castewisereport');
 	#For Caste wise report page Table datas
 	Route::get('/paymentdetails', function () {
@@ -42,6 +44,8 @@ Route::group(['middleware'],function(){
 	//$cwr = DB::table('users')->where('created_at', '>=',$date )->get();
 	//return view('admin.dashboard.castewisereport', ['caste_name' => $cwr]);
 	//});
+
+	Route::resource('/manage-gallery', 'Admin\GalleryController');
 	//User Register
 	Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
 	Route::post('/register', 'Auth\RegisterController@register');

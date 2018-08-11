@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/{version}/croppie.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/{version}/croppie.min.css"> -->
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -143,7 +143,7 @@
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap-4.0.0.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/{version}/croppie.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/{version}/croppie.min.js"></script> -->
     @yield('scripts')
 </body>
 

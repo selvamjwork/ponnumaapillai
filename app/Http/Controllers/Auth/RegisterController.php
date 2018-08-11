@@ -104,10 +104,9 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        $caste = caste::orderBy('caste_name','ASC')->get();
-
         $scrollingmessage = scrollingmessage::where('active','=','1')->get();
-
+        
+        $caste = caste::orderBy('caste_name','ASC')->get();
         $casteArray = array();
         foreach ($caste as $value) {
             $casteArray[$value['id']] =ucfirst($value['caste_name']);

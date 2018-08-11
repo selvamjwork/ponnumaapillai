@@ -2,6 +2,15 @@
 
 @section('content')
 <div class="panel-heading">Search</div>
+@if(Session::has('success'))
+  <div class="alert alert-success"> {{Session::get('success')}} </div> 
+@endif
+@if(Session::has('message')) 
+  <div class="alert alert-info"> {{Session::get('message')}} </div> 
+@endif
+@if(Session::has('error'))
+  <div class="alert alert-danger"> {{Session::get('error')}} </div> 
+@endif
 <div class="glass-panal-default">
     <div class="panel-body">
         @if (session('status'))

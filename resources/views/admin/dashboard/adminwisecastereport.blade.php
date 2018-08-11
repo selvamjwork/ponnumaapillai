@@ -4,7 +4,7 @@
 {!! Charts::assets() !!}
 @endsection
 
-@section('title') Caste Day Report @endsection
+@section('title') Admin Day Report @endsection
 
 @section('content')
 <div class="content-wrapper">
@@ -17,7 +17,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                        <li class="breadcrumb-item active">Caste Day Report </li>
+                        <li class="breadcrumb-item active">Admin Day Report </li>
                     </ol>
                 </div>
             </div>
@@ -29,14 +29,21 @@
                 <div class="col">
                     <div class="card card-outline card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Caste Day Report</h3>
+                            <h3 class="card-title">Admin Day Report</h3>
                         </div>
                         <div class="card-body">
-                            <form class="was-validated" action="{!! url('/admin/dashboard/castewisereport') !!}">
+                            <form class="was-validated" action="{!! url('/admin/dashboard/adminwisecastereport') !!}">
                                 <div class="form-group row mr-3 ml-3">
                                     <div class="col-md-12">
                                         <label for="dateform" class="control-label">Date</label>
                                         <div class="input-group">
+                                            <!-- <button type="button" class="btn btn-default float-right" id="daterange-btn"><i class="fa fa-calendar mr-1"></i>Select Date<i class="fa fa-caret-down ml-1"></i> </button> -->
+                                            <select required name="admin" class="fa fa-caret-down ml-1">
+                                                <option value="">select Admin</option>
+                                                @foreach($subadmin as $value)
+                                                <option value="{!! $value->id !!}">{!! $value->name !!}</option>
+                                                @endforeach
+                                            </select>
                                             <select required name="month" class="fa fa-caret-down ml-1">
                                                 <option value="">select month</option>
                                                 @foreach($monthList as $value)
@@ -84,6 +91,7 @@
                             </table>
                             @endif
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'userLog'=>\App\Http\Middleware\UserLog::class,
         'isEmailVerified'=>\App\Http\Middleware\EmailVerified::class,
         'scrollingmessage' => \App\Http\Middleware\scrollingmessage::class,
+        'userPaymentCheck' => \App\Http\Middleware\UserPaymentCheck::class,
     ];
 }
