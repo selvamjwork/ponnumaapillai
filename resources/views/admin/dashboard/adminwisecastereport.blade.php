@@ -34,18 +34,23 @@
                         <div class="card-body">
                             <form class="was-validated" action="{!! url('/admin/dashboard/adminwisecastereport') !!}">
                                 <div class="form-group row mr-3 ml-3">
-                                    <div class="col-md-12">
-                                        <label for="dateform" class="control-label">Date</label>
+                                    <div class="col-md-6">
+                                        <label for="dateform" class="control-label">Admin</label>
                                         <div class="input-group">
-                                            <!-- <button type="button" class="btn btn-default float-right" id="daterange-btn"><i class="fa fa-calendar mr-1"></i>Select Date<i class="fa fa-caret-down ml-1"></i> </button> -->
-                                            <select required name="admin" class="fa fa-caret-down ml-1">
-                                                <option value="">select Admin</option>
+                                            <select required name="admin" class="form-control select2">
+                                                <option value="">Select Admin</option>
                                                 @foreach($subadmin as $value)
                                                 <option value="{!! $value->id !!}">{!! $value->name !!}</option>
                                                 @endforeach
                                             </select>
-                                            <select required name="month" class="fa fa-caret-down ml-1">
-                                                <option value="">select month</option>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="dateform" class="control-label">Month</label>
+                                        <div class="input-group">
+                                            <select required name="month" class="form-control select2">
+                                                <option value="">Select Month</option>
                                                 @foreach($monthList as $value)
                                                 <option value="{!! $value->id !!}">{!! $value->month_name !!}</option>
                                                 @endforeach
@@ -53,6 +58,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                
                                 <div class="row ">
                                     <div class="offset-xl-5 col-xl-1 offset-lg-5 col-lg-1 col-md-1 offset-md-5 offset-sm-5 col-sm-1 offset-4 col-2">
                                         <button type="submit" class="btn btn-warning">View Report</button>

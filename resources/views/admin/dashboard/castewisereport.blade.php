@@ -35,10 +35,10 @@
                             <form class="was-validated" action="{!! url('/admin/dashboard/castewisereport') !!}">
                                 <div class="form-group row mr-3 ml-3">
                                     <div class="col-md-12">
-                                        <label for="dateform" class="control-label">Date</label>
+                                        <label for="dateform" class="control-label">Month</label>
                                         <div class="input-group">
-                                            <select required name="month" class="fa fa-caret-down ml-1">
-                                                <option value="">select month</option>
+                                            <select required name="month" class="form-control select2">
+                                                <option value="">Select Month</option>
                                                 @foreach($monthList as $value)
                                                 <option value="{!! $value->id !!}">{!! $value->month_name !!}</option>
                                                 @endforeach

@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 
-
+@section('page_name') Privacy Policy @endsection
 @section('content')
 <div class="container">
 	<div class="col-md-12">
