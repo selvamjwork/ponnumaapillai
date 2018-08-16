@@ -75,6 +75,9 @@
                                 <li class="nav-item"> <a href="/admin/dashboard/subadminwisereport" class="nav-link"> <i class="fa fa-user-secret nav-icon"></i>
                                 <p>Sub Admin</p>
                                 </a> </li>
+                                {{-- <li class="nav-item"> <a href="/admin/dashboard/onlineusercount" class="nav-link"> <i class="fa fa-globe nav-icon"></i>
+                                <p>Online User Report</p>
+                                </a> </li> --}}
                             </ul>
                             <hr>
                         </li>

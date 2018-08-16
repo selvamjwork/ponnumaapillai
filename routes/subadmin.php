@@ -20,19 +20,10 @@ Route::group(['middleware'],function(){
 	Route::post('/register', 'Auth\RegisterController@register');
 	Route::resource('/manage-user', 'SubAdmin\ManageUserController');
 	Route::get('/manage-user/{user}/activate', 'SubAdmin\ManageUserController@activate');
-	#Payment Details
-	Route::get('/paymentdetails', function () {
-	$user_id = \Auth::user()->user_id;
-    $petani = DB::table('paymentstatus')->where('user_id', $user_id)->get();
-
-    
-     Route::patch('/get-subsect/{id}/{selectedSubsect?}', 'SubAdmin\ManageUserController@update1');
-
-    return view('subadmin.dashboard.paymentdetails', ['order_id' => $petani]);
-});
-
-	// dashboard
+	
+	// Report
 	Route::get('/dashboard','SubAdmin\ReportPageController@index');
+	Route::get('/subadminwisecaste','SubAdmin\ReportPageController@monthwisereport');
 	
 });
 

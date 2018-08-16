@@ -19,7 +19,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-2 col-6">
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3>{{$user}}</h3>
@@ -32,7 +32,7 @@
                         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-2 col-6">
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3>{{$payment}}</h3>
@@ -44,7 +44,7 @@
                         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-2 col-6">
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3>{{$activeprofile}}</h3>
@@ -57,12 +57,25 @@
                         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-2 col-6">
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>{{$deleteprofile}}</h3>
 
                             <p>Inactive User</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-stalker"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <div class="small-box bg-secondary">
+                        <div class="inner">
+                            <h3>{{$onlineUserCount}}</h3>
+
+                            <p>ORU</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-stalker"></i>

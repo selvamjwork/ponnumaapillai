@@ -7,20 +7,14 @@
   <div class="content-header">
       <div class="container-fluid">
         @if(Session::has('success'))
-                <div class="col-sm-6">
-                  <div class="alert alert-success"> {{Session::get('success')}} </div> 
-                </div>
-              @endif
-              @if(Session::has('message')) 
-                <div class="col-sm-6">
-                  <div class="alert alert-info"> {{Session::get('message')}} </div> 
-                </div>
-              @endif
-              @if(Session::has('error'))
-                <div class="col-sm-6">
-                  <div class="alert alert-danger"> {{Session::get('error')}} </div> 
-                </div>
-              @endif
+              <div class="alert alert-success"> {{Session::get('success')}} </div> 
+          @endif
+          @if(Session::has('message'))
+              <div class="alert alert-info"> {{Session::get('message')}} </div> 
+          @endif
+          @if(Session::has('error'))
+              <div class="alert alert-danger"> {{Session::get('error')}} </div>
+          @endif
           <div class="row mb-2">
           </div>
       </div>

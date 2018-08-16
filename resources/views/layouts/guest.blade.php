@@ -9,6 +9,9 @@
     <title>PM | @yield('page_name')</title>
     <!-- Bootstrap -->
     <link href="/css/adminlte.min.css" rel="stylesheet">
+    <link href="/css/fluid-gallery.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -37,23 +40,15 @@
         </div>
     </header>
 
-    <!--  Basic Register Form -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 align-content-center">
-                <div id="basicform">
-                    @yield('content')
-                </div>
-            </div>
-        </div>
-    </div>
+    @yield('content')
+                
     <hr>
     <footer class="footer text-muted" id="main_footer">
           <div class="container">
               <div class="row">
                   <div class="col text-center">
                       <div class="copy">
-                          <p class="footer-block">| <a href="{{ url('about-us') }}" class="text-danger">About Us</a> | <a href="{{ url('Privacy') }}" class="text-danger">Privacy Policy</a> | <a href="{{ url('Terms') }}" class="text-danger">Terms and Conditions</a> | <a href="{{ url('contactus') }}" class="text-danger">Reach Us</a></p>
+                          <p class="footer-block">| <a href="{{ url('about-us') }}" class="text-danger">About Us</a> | <a href="{{ url('Privacy') }}" class="text-danger">Privacy Policy</a> | <a href="{{ url('Terms') }}" class="text-danger">Terms and Conditions</a> | <a href="{{ url('gallery') }}" class="text-danger">Photo Gallery</a> | <a href="{{ url('contactus') }}" class="text-danger">Reach Us</a></p>
                           <p>All Rights Reserved.Copyright.© 2018 Ponnu Maapillai Developed By <a href="http://linepix.in">Linepix.in</a></p>
                       </div>
                   </div>
@@ -66,6 +61,10 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap-4.0.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+    <script>
+        baguetteBox.run('.tz-gallery');
+    </script>
 </body>
 
 </html>

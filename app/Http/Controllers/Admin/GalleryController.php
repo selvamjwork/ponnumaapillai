@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Gallery;
+use Carbon\Carbon;
+use Session;
 
 class GalleryController extends Controller
 {
@@ -37,22 +39,24 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-
-        $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
-        $request->image->move(public_path('images'), $input['image']);
-
-
-        $input['title'] = $request->title;
-        Gallery::create($input);
-
-
-        return back()
-            ->with('success','Image Uploaded successfully.');
+        $image = [];
+        foreach ($request->file('image') as $file) {
+            $path ='images/uploads/gallery';
+            $file->getClientOriginalName();
+            $targetFileName = date('YmdHis'.substr((string)microtime(), 1, 8)).'.'.$file->getClientOriginalExtension();
+            $file->move($path,$targetFileName);
+            $req = $targetFileName;
+            $image[] = [
+                'title'=>$request->title,
+                'discreption' => $request->discreption,
+                'image' => $req,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ];
+        }
+        $Gallery = Gallery::insert($image);
+        Session::flash('success', 'Photos Added Successfully');
+        return redirect('admin/manage-gallery');
     }
 
     /**

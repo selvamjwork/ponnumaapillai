@@ -1,5 +1,5 @@
 @extends('layouts.guest')
-
+@section('page_name') About Us @endsection
 
 @section('content')
 <div class="container">

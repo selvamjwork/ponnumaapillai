@@ -4,13 +4,14 @@ use Illuminate\Http\Request;
 use Softon\Indipay\Facades\Indipay;
 use DB;
 use App\Sms;
+use Auth;
 class InstaController extends Controller
 {
     public function checkout(request $request) 
     {
       $orderCode = time('YmdHis'.substr((string)microtime(), 1, 8));
       $pmid = \Auth::user()->user_id;
-      //$newOrderCode = ($orderCode) ? ++$orderCode->order_code : 'ORD-000000001';
+
       $parameters = [
         'tid' => '123',
         'order_id' => $orderCode,

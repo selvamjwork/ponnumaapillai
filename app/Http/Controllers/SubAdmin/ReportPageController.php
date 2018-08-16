@@ -11,7 +11,8 @@ use DB;
 use Session;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-
+use App\month;
+use App\caste;
 class ReportPageController extends Controller
 {
 	public function index()
@@ -41,5 +42,33 @@ class ReportPageController extends Controller
         $newuser = User::where('admin_id', '=',$authuser)->where('created_at', '>=',$date )->paginate(10);
 
         return view('subadmin.dashboard.noofuser',compact('newuser','todayuser','alluser','male','female'));
-    }    
+    } 
+
+    public function monthwisereport(Request $request)
+    {
+        $authuser = \Auth::user()->id;
+        $monthList  = month::get();
+        $caste = caste::get();
+        $requestAll = $request->All();
+        if (!empty($requestAll)) {
+            $month = User::where('payment_completed','1')->where('admin_id',$authuser)->whereMonth('created_at',$request->month)
+                ->groupBy('created_at','caste')
+                ->selectRaw('count(created_at) as count, DATE_FORMAT(created_at,"%d/%m/%Y") as created_date , caste')
+                ->orderBy('caste')
+                ->orderBy('created_at')
+                ->get()
+                ->groupBy('caste');
+            $month = $month->toArray();
+
+            $month_details=[
+                "month"=>$request->month,
+                "days_count"=>cal_days_in_month(CAL_GREGORIAN,$request->month,date("Y"))
+            ];
+            return view('subadmin.dashboard.monthwisereport',compact(['requestAll','monthList','subadmin','month','caste','month_details']));
+        }
+        else{
+            $month_details = ['month' => '','days_count' => ''];
+            return view('subadmin.dashboard.monthwisereport',compact(['requestAll','month_details','monthList','caste','subadmin']));
+        }
+    }
 }

@@ -14,6 +14,7 @@ use Session;
 use App\Http\Controllers\Controller;
 use Charts;
 use App\month;
+use Carbon\Carbon;
 
 class ReportPageController extends Controller
 {
@@ -21,7 +22,7 @@ class ReportPageController extends Controller
     {
         $date = date('y-m-d');
         $loggeduser = UserLog::where('created_at','>=',$date)->distinct('user_id')->count('user_id');
-        
+        $onlineUserCount = User::whereNull('admin_id')->whereMonth('created_at', '=', Carbon::now()->subMonth()->month)->distinct('id')->count('id');;
         $user = User::where('created_at', '>=',$date )->distinct('id')->count('id');
         
         $alluser = User::distinct('id')->count('id');
@@ -41,7 +42,7 @@ class ReportPageController extends Controller
         $subadmins = DB::table('subadmins')->get();
         $casteid = DB::table('caste')->get();
         $newuser = User::where('created_at', '>=',$date )->paginate(10);
-        return view('admin.dashboard.noofuser',compact('newuser', 'activeprofile', 'deleteprofile' ,'subadmins','casteid','payment','loggeduser','user','alluser','allmale', 'allfemale' ,'male','female'));
+        return view('admin.dashboard.noofuser',compact('newuser', 'activeprofile', 'deleteprofile' ,'subadmins','casteid','payment','loggeduser','user','alluser','allmale', 'allfemale' ,'male','female','onlineUserCount'));
     }
 
     public function adminwisecastereport(Request $request)

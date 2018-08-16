@@ -181,7 +181,7 @@ class ManageUserController extends Controller
             'fathers_name' => 'required|max:255',
             'mothers_name' => 'required|max:255',
             'pob' => 'required|max:255',
-            'mobile' => 'required|max:10|unique:users',
+            'mobile' => 'required|max:10',
             'password' => 'required|min:6',
         ]);
     }
@@ -202,31 +202,52 @@ class ManageUserController extends Controller
         $from = $requestData['year'];
         $to = date('Y');
         $requestData['age'] = $to-$from;
-        // dd($requestData['age']);
         $usercreate = User::create($requestData);
-        $horoscope = horoscope::create([
-            'user_id' => $usercreate->id,
-            'raasi_sun' => $request->raasi_sun,
-            'raasi_moon' => $request->raasi_moon,
-            'raasi_mars' => $request->raasi_mars,
-            'raasi_mercury' => $request->raasi_mercury,
-            'raasi_jupiter' => $request->raasi_jupiter,
-            'raasi_venus' => $request->raasi_venus,
-            'raasi_saturn' => $request->raasi_saturn,
-            'raasi_raagu' => $request->raasi_raagu,
-            'raasi_kethu' => $request->raasi_kethu,
-            'raasi_lagna' => $request->raasi_lagna,
-            'amsam_sun' => $request->amsam_sun,
-            'amsam_moon' => $request->amsam_moon,
-            'amsam_mars' => $request->amsam_mars,
-            'amsam_mercury' => $request->amsam_mercury,
-            'amsam_jupiter' => $request->amsam_jupiter,
-            'amsam_venus' => $request->amsam_venus,
-            'amsam_saturn' => $request->amsam_saturn,
-            'amsam_raagu' => $request->amsam_raagu,
-            'amsam_kethu' => $request->amsam_kethu,
-            'amsam_lagna' => $request->amsam_lagna,
-        ]);
+        if (!empty($request->raasi_sun)
+            && !empty($request->raasi_moon)
+            && !empty($request->raasi_mars)
+            && !empty($request->raasi_mercury)
+            && !empty($request->raasi_jupiter)
+            && !empty($request->raasi_venus)
+            && !empty($request->raasi_saturn)
+            && !empty($request->raasi_raagu)
+            && !empty($request->raasi_kethu)
+            && !empty($request->raasi_lagna)
+            && !empty($request->amsam_sun)
+            && !empty($request->amsam_moon)
+            && !empty($request->amsam_mars)
+            && !empty($request->amsam_mercury)
+            && !empty($request->amsam_jupiter)
+            && !empty($request->amsam_venus)
+            && !empty($request->amsam_saturn)
+            && !empty($request->amsam_raagu)
+            && !empty($request->amsam_kethu)
+            && !empty($request->amsam_lagna)) 
+        {
+            $horoscope = horoscope::create([
+                'user_id' => $usercreate->id,
+                'raasi_sun' => $request->raasi_sun,
+                'raasi_moon' => $request->raasi_moon,
+                'raasi_mars' => $request->raasi_mars,
+                'raasi_mercury' => $request->raasi_mercury,
+                'raasi_jupiter' => $request->raasi_jupiter,
+                'raasi_venus' => $request->raasi_venus,
+                'raasi_saturn' => $request->raasi_saturn,
+                'raasi_raagu' => $request->raasi_raagu,
+                'raasi_kethu' => $request->raasi_kethu,
+                'raasi_lagna' => $request->raasi_lagna,
+                'amsam_sun' => $request->amsam_sun,
+                'amsam_moon' => $request->amsam_moon,
+                'amsam_mars' => $request->amsam_mars,
+                'amsam_mercury' => $request->amsam_mercury,
+                'amsam_jupiter' => $request->amsam_jupiter,
+                'amsam_venus' => $request->amsam_venus,
+                'amsam_saturn' => $request->amsam_saturn,
+                'amsam_raagu' => $request->amsam_raagu,
+                'amsam_kethu' => $request->amsam_kethu,
+                'amsam_lagna' => $request->amsam_lagna,
+            ]);
+        }
         $userid_generete = 'PM1'  .sprintf("%05d", $usercreate->id);
         $usercreate->user_id = $userid_generete;
         $usercreate->save();

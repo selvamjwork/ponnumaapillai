@@ -5,120 +5,55 @@
 @if(Session::has('message')) <div class="alert alert-info"> {{Session::get('message')}} </div> @endif
         @section('title')<b>Edit user {{ ucfirst($user->name) }}</b>@endsection
         
-{!! Form::model($user, ['method' => 'PATCH', 'url' => ['/user/update-profile2'],'class' => 'form-horizontal','files' => true]) !!}
-        <div class="form-top">
-            <div class="form-top-left">
-                <h3>Step 2 / 3</h3>
-                <p>Family Details - குடும்ப விவரங்கள்</p>
-            </div>
-            <div class="form-top-right">
-                <i class="fa fa-users" aria-hidden="true"></i>
-            </div>
+<div class="container">
+    <div class="post">
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="img/avatar.png" alt="User Image">
+                        <span class="username">
+                          <a href="#">PonnuMaapillai</a>
+                          <a href="#" class="float-right btn-tool"><i class="fa fa-times"></i></a>
+                        </span>
+                        <span class="description">Posted 5 photos - 5 days ago</span>
+                      </div>
+                      <!-- /.user-block -->
+                      <div class="row mb-3">
+                        <div class="col-sm-6">
+                          <img class="img-fluid" src="/img/photo1.png" alt="Photo">
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <img class="img-fluid mb-3" src="img/photo2.png" alt="Photo">
+                              <img class="img-fluid" src="img/photo2.png" alt="Photo">
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-6">
+                              <img class="img-fluid mb-3" src="img/photo1.png" alt="Photo">
+                              <img class="img-fluid" src="img/photo1.png" alt="Photo">
+                            </div>
+                            <!-- /.col -->
+                          </div>
+                          <!-- /.row -->
+                        </div>                        
+                      </div>
+                      <!-- /.row -->
+                            
+                      
+                          <div class="row">
+                          
+                        <div class="col-md-12"> 
+                            <h3> Title. </h3>
+                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur deleniti deserunt doloribus, voluptas explicabo ducimus autem voluptatibus. Aperiam, odio, repudiandae. </p>
+                              
+                        </div>
+                        <div class="col-md-12"> 
+                        <a href="#" class="link-black text-sm mr-2"><i class="fa fa-share mr-1"></i> Share</a>
+                        <a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up mr-1"></i> Like</a>
+                        </div>                                       
         </div>
-        <div class="form-bottom">
-            <div class="form-group {{ $errors->has('fathers_name') ? 'has-error' : ''}}">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <span><i class="glyphicon glyphicon-asterisk text-danger"></i></span> {!! Form::label('fathers_name', 'Fathers Name (தந்தையின் பெயர்)', ['class' => 'control-label']) !!}
-                    {!! Form::text('fathers_name', null, ['required' => 'required','placeholder'=>'Fathers Name (தந்தையின் பெயர்)','class' => 'form-control']) !!}
-                    {!! $errors->first('fathers_name', '<p class="help-block">:message</p>') !!}
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <span><i class="glyphicon glyphicon-asterisk text-danger"></i></span> {!! Form::label('fathers_occupation', 'Fathers Occupation (தந்தையின் தொழில்)', ['class' => 'control-label']) !!}
-                    {!! Form::text('fathers_occupation', null, ['placeholder'=>'Fathers Occupation (தந்தையின் தொழில்)','required' => 'required','class' => 'form-control']) !!}
-                    {!! $errors->first('fathers_occupation', '<p class="help-block">:message</p>') !!}
-                </div>
-            </div>
-            <div class="form-group {{ $errors->has('mothers_name') ? 'has-error' : ''}}">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <span><i class="glyphicon glyphicon-asterisk text-danger"></i></span> {!! Form::label('mothers_name', 'Mothers Name (அம்மாவின் பெயர்)', ['class' => 'control-label']) !!}
-                    {!! Form::text('mothers_name', null, ['required' => 'required','placeholder'=>'Mothers Name (அம்மாவின் பெயர்)','class' => 'form-control']) !!}
-                    {!! $errors->first('mothers_name', '<p class="help-block">:message</p>') !!}
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <span><i class="glyphicon glyphicon-asterisk text-danger"></i></span> {!! Form::label('mothers_occupation', 'Mothers Occupation (அம்மாவின் தொழில்)', ['class' => 'control-label']) !!}
-                    {!! Form::text('mothers_occupation', null, ['placeholder'=>'Mothers Occupation (அம்மாவின் தொழில்)','required' => 'required','class' => 'form-control']) !!}
-                    {!! $errors->first('mothers_occupation', '<p class="help-block">:message</p>') !!}
-                </div>
-            </div>
-            <div class="form-group {{ $errors->has('noofbrothers') ? 'has-error' : ''}}">
-                <div class="col-md-12">
-                <span><i class="glyphicon glyphicon-asterisk text-danger"></i></span> {!! Form::label('noofbrothers', 'No Of Brothers (சகோதரர்களின் எண்ணிக்கை)', ['class' => 'control-label']) !!}
-                 <!--    {{ Form::select('noofbrothers', ['0' => '0','1' => '1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','5 and Above'],null,['required' => 'required','class' => 'form-control']) }} -->
-           
-                <div>
-                  <select required="required" id="noofbrothers" name="noofbrothers" class="form-control" onchange="render(value)">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2" selected="selected">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-
-                 </div>
-                    {!! $errors->first('noofbrothers', '<p class="help-block">:message</p>') !!}
-                </div>
-            </div>
-            <div class="form-group {{ $errors->has('noofbrothersstatus') ? 'has-error' : ''}}">
-                <div class="col-md-12">
-                <span><i class="glyphicon glyphicon-asterisk text-danger"></i></span> {!! Form::label('noofbrothersstatus', 'No Of Brothers Married (எத்தனை சகோதரர்களுக்கு திருமணம் ஆனது)', ['class' => 'control-label']) !!}
-                   <!--  {{ Form::select('noofbrothersstatus', ['0' => '0','1' => '1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','5 and Above'],null,['required' => 'required','class' => 'form-control']) }} -->
-            <div>
-                 <select name="noofbrothersstatus" id="noofbrothersstatus" onchange="setstatus(value)" class="form-control">
-                  <option><?php echo $user->noofbrothersstatus; ?></option>
-                 </select>
-           </div>
-
-                    {!! $errors->first('noofbrothersstatus', '<p class="help-block">:message</p>') !!}
-                </div>
-            </div>
-
-            <div class="form-group {{ $errors->has('noofsisters') ? 'has-error' : ''}}">
-                <div class="col-md-12">
-                <span><i class="glyphicon glyphicon-asterisk text-danger"></i></span> {!! Form::label('noofsisters', 'No Of Sisters (சகோதரிகளின் எண்ணிக்கை)', ['class' => 'control-label']) !!}
-                  <!--   {{ Form::select('noofsisters', ['0' => '0','1' => '1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','5 and Above'],null,['required' => 'required','class' => 'form-control']) }} -->
-
-                <div>
-                  <select required="required" id="noofsisters" name="noofsisters" class="form-control" onchange="response(value)">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2" selected="selected">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-
-                 </div>
-                    {!! $errors->first('noofsisters', '<p class="help-block">:message</p>') !!}
-                </div>
-            </div>
-            <div class="form-group {{ $errors->has('noofsistersstatus') ? 'has-error' : ''}}">
-                <div class="col-md-12">
-                <span><i class="glyphicon glyphicon-asterisk text-danger"></i></span> {!! Form::label('noofsistersstatus', 'No Of Sisters Married (எத்தனை சகோதரிகளுக்கு  திருமணம் ஆனது)', ['class' => 'control-label']) !!}
-                   <!--  {{ Form::select('noofsistersstatus', ['0' => '0','1' => '1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','5 and Above'],null,['required' => 'required','class' => 'form-control']) }} -->
-                       <div>
-                 <select name="noofsistersstatus" id="noofsistersstatus" onchange="setsister(value)" class="form-control">
-                  <option><?php echo $user->noofsistersstatus; ?></option>
-                 </select>
-           </div>
-                    {!! $errors->first('noofsistersstatus', '<p class="help-block">:message</p>') !!}
-                </div>
-            </div>
-            <div class="form-group {{ $errors->has('address') ? 'has-error' : ''}}">
-                <div class="col-md-12">
-                <span><i class="glyphicon glyphicon-asterisk text-danger"></i></span> {!! Form::label('address', 'Address (முகவரி)', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('address', null, ['required' => 'required','placeholder'=>'Address (முகவரி)','class' => 'form-control']) !!}
-                    {!! $errors->first('address', '<p class="help-block">:message</p>') !!}
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-12">
-                    <a class="pull-left btn btn-primary" href="/user/update-profile1">Previous</a>
-                    <button type="submit" class="pull-right btn btn-primary">Save and Continue</button>
-                </div>
-            </div>
-        </div>
-{!! Form::close() !!}
+        </div>        
+    </div>
 @endsection
 
 

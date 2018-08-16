@@ -71,10 +71,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('/subadmin/paymentdetails')}}" class="nav-link">
+                            <a href="{{url('/subadmin/subadminwisecaste')}}" class="nav-link">
                                 <i class="fa ion-cash nav-icon"></i>
                                 <p>
-                                    Payment Details
+                                    Month Wise Report
                                 </p>
                             </a>
                         </li>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Gallery;
 
 class defaultController extends Controller
 {
@@ -46,16 +47,11 @@ class defaultController extends Controller
     {
         return view('default.paymentstatus');
     }
-    //  public function response()
-    // {
-    //     return view('default.response');
-    // }
-    // public function response(Request $request)
-    //  {
-    //     $response = Indipay::response($request);
-    //     dd($response);
-    //     return view ('pages.paymentsuccess');
-    //  }
-
+    public function gallery()
+    {
+        $gallery = Gallery::orderBy('id','desc')->paginate(6);
+        // dd($gallery);
+        return view('default.gallery',compact(['gallery']));
+    }
 }
 

@@ -13,20 +13,20 @@ return [
 
     'gateway' => 'CCAvenue',                // Replace with the name of default gateway you want to use
 
-    'testMode'  => true,                   // True for Testing the Gateway [For production false]
+    'testMode'  => false,                   // True for Testing the Gateway [For production false]
 
-    // 'ccavenue' => [                         // CCAvenue Parameters
-    //     'merchantId'  => env('INDIPAY_MERCHANT_ID', '165377'),
-    //     'accessCode'  => env('INDIPAY_ACCESS_CODE', 'AVJH76FB02AK99HJKA'),
-    //     'workingKey' => env('INDIPAY_WORKING_KEY', 'FDCD561E5FE41B52631C53D3FF22966F'),
+    'ccavenue' => [                         // CCAvenue Parameters
+        'merchantId'  => env('INDIPAY_MERCHANT_ID', '165377'),
+        'accessCode'  => env('INDIPAY_ACCESS_CODE', 'AVJH76FB02AK99HJKA'),
+        'workingKey' => env('INDIPAY_WORKING_KEY', 'FDCD561E5FE41B52631C53D3FF22966F'),
 
-    //     // Should be route address for url() function
-    //     'redirectUrl' => env('INDIPAY_REDIRECT_URL', 'indipay/response'),
-    //     'cancelUrl' => env('INDIPAY_CANCEL_URL', 'indipay/response'),
+        // Should be route address for url() function
+        'redirectUrl' => env('INDIPAY_REDIRECT_URL', 'indipay/response'),
+        'cancelUrl' => env('INDIPAY_CANCEL_URL', 'indipay/response'),
 
-    //     'currency' => env('INDIPAY_CURRENCY', 'INR'),
-    //     'language' => env('INDIPAY_LANGUAGE', 'EN'),
-    // ],
+        'currency' => env('INDIPAY_CURRENCY', 'INR'),
+        'language' => env('INDIPAY_LANGUAGE', 'EN'),
+    ],
 
     'payumoney' => [                         // PayUMoney Parameters
         'merchantKey'  => env('INDIPAY_MERCHANT_KEY', ''),

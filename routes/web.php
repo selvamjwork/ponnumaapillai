@@ -32,6 +32,7 @@ Route::get('/password/reset-type',function()
 {
    return view('auth.passwords.by');
 });
+Route::get('/gallery','defaultController@gallery');
 Route::get('/about-us','defaultController@about_us');
 Route::get('/Privacy','defaultController@Privacy');
 Route::get('/Terms','defaultController@Terms');

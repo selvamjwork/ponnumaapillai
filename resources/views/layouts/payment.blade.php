@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col text-center">
                     <div class="copy">
-                        <p class="footer-block">| <a href="http://ponnumaapillai.com/about-us" class="text-danger">About Us</a> | <a href="http://ponnumaapillai.com/Privacy" class="text-danger">Privacy Policy</a> | <a href="http://ponnumaapillai.com/Terms" class="text-danger">Terms and Conditions</a> | <a href="http://ponnumaapillai.com/contactus" class="text-danger">Reach Us</a></p>
+                        <p class="footer-block">| <a href="http://ponnumaapillai.com/about-us" class="text-danger">About Us</a> | <a href="http://ponnumaapillai.com/Privacy" class="text-danger">Privacy Policy</a> | <a href="http://ponnumaapillai.com/Terms" class="text-danger">Terms and Conditions</a> | <a href="{{ url('gallery') }}" class="text-danger">Photo Gallery</a> | <a href="http://ponnumaapillai.com/contactus" class="text-danger">Reach Us</a></p>
                         <p>All Rights Reserved.Copyright.© 2018 Ponnu Maapillai Developed By <a href="http://linepix.in">Linepix.in</a></p>
                     </div>
                 </div>
