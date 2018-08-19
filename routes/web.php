@@ -33,23 +33,16 @@ Route::get('/password/reset-type',function()
    return view('auth.passwords.by');
 });
 Route::get('/gallery','defaultController@gallery');
+Route::get('/gallery/{id}','defaultController@galleryshow');
 Route::get('/about-us','defaultController@about_us');
 Route::get('/Privacy','defaultController@Privacy');
 Route::get('/Terms','defaultController@Terms');
 Route::get('/contactus','defaultController@contactus');
-Route::get('/payment','defaultController@payment');
 Route::get('/response','InstaController@response');
 Route::POST('checkout','InstaController@checkout');
 Route::POST('/indipay/response','InstaController@response');
 Route::get('paymentsuccess','InstaController@paymentsuccess');
 Route::get('paymentfailure','InstaController@paymentfailure');
-//Route::get('/paymentstatus','defaultController@paymentstatus');
-Route::get('/paymentstatus', function () {
-    $user_id = \Auth::user()->user_id;
-    $petani = DB::table('paymentstatus')->where('user_id', $user_id)->paginate(5);
-    return view('default.paymentstatus', ['order_id' => $petani]);
-});
-
 
 # Route for PDF
 Route::get('pdfview',array('as'=>'pdfview','uses'=>'ItemController@pdfview'));
@@ -64,6 +57,10 @@ Route::group(['middleware' => ['auth', 'userLog', 'userPaymentCheck']], function
     Route::get('pdf','HomeController@pdf');
 
     Route::get('/home/{user}','HomeController@show')->name('home');
+
+    Route::get('/paymentstatus','defaultController@paymentstatus');
+    Route::get('/makepayment','defaultController@makepayment');
+    Route::get('/payment','defaultController@payment');
 
     #VerificationController Route
     Route::get('/mobileVerification', 'Auth\VerificationController@VerifyMobile');

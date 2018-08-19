@@ -16,6 +16,13 @@ Route::group(['middleware'],function(){
 		return view('admin.home',compact('casteid','subadmins'));
 	});
 
+	// Album Controller
+    Route::resource('/album', 'Admin\AlbumController');
+	// Photo Controller
+    Route::get('/photo/create/{id}', 'Admin\PhotosController@create');
+    Route::post('/photo/create', 'Admin\PhotosController@store');
+    Route::get('/photo/{id}', 'Admin\PhotosController@show');
+    Route::delete('/photo/{id}', 'Admin\PhotosController@destroy');
 	// Caste Controller
     Route::resource('/caste', 'Admin\CasteController');
     // Caste Controller

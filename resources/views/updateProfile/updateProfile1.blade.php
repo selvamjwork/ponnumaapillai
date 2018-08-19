@@ -377,6 +377,29 @@
                                         {!! $errors->first('star', '<p class="help-block">:message</p>') !!}
                                     </div>
                                 </div>
+                                <div class="form-top-left">
+                                    <p class="text-center"><b>Birth Balance Dasa</b></p>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12 col-12 col-xl-4 col-lg-4">
+                                        <span><i class="glyphicon glyphicon-asterisk text-danger"></i></span>
+                                        <label for="dasha_year" class="control-label">Dasa Year (தசா ஆண்டு)</label>
+                                        {!! Form::text('dasha_year', null, ['required' => 'required','placeholder'=>'Dasa Year (தசா ஆண்டு)','class' => 'form-control']) !!}
+                                        {!! $errors->first('dasha_year', '<p class="help-block">:message</p>') !!}
+                                    </div>
+                                    <div class="col-sm-12 col-12 col-xl-4 col-lg-4">
+                                        <span><i class="glyphicon glyphicon-asterisk text-danger"></i></span>
+                                        <label for="dasha_month" class="control-label">Dasa Month (தசா மாதம்)</label>
+                                        {!! Form::text('dasha_month', null, ['required' => 'required','placeholder'=>'Dasa Month (தசா மாதம்)','class' => 'form-control']) !!}
+                                        {!! $errors->first('dasha_month', '<p class="help-block">:message</p>') !!}
+                                    </div>
+                                    <div class="col-sm-12 col-12 col-xl-4 col-lg-4">
+                                        <span><i class="glyphicon glyphicon-asterisk text-danger"></i></span>
+                                        <label for="dasha_day" class="control-label">Dasa Day (தசா நாள்)</label>
+                                        {!! Form::text('dasha_day', null, ['required' => 'required','placeholder'=>'Dasa Day (தசா நாள்)','class' => 'form-control']) !!}
+                                        {!! $errors->first('dasha_day', '<p class="help-block">:message</p>') !!}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

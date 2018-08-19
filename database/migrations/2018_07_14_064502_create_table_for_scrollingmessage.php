@@ -16,7 +16,7 @@ class CreateTableForScrollingmessage extends Migration
         Schema::create('scrollingmessage', function (Blueprint $table) {
             $table->increments('id');
             $table->string('scrolling_message')->lenght(1000);
-	    $table->boolean('active')->default(true);
+	        $table->boolean('active')->default(true);
         });
     }
 

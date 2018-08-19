@@ -36,19 +36,25 @@
 							</div>
 							<div class="card-footer">
 								<div class="row">
-									<div class="col-sm-4 border-right">
+									<div class="col-sm-3 border-right">
 										<div class="description-block">
 											<h5 class="description-header">MatriID</h5>
 											<span class="description-text">{{$id->user_id}}</span>
 										</div>
 									</div>
-									<div class="col-sm-4 border-right">
+									<div class="col-sm-3 border-right">
 										<div class="description-block">
 											<h5 class="description-header">Profile Created</h5>
 											<span class="description-text">{{$id->created_at->day}}-{{$id->created_at->month}}-{{$id->created_at->year}}</span>
 										</div>
 									</div>
-									<div class="col-sm-4">
+									<div class="col-sm-3 border-right">
+										<div class="description-block">
+											<h5 class="description-header">Your subscription expire on</h5>
+											<span class="description-text">{{$expired_date}}</span>
+										</div>
+									</div>
+									<div class="col-sm-3">
 										<div class="description-block">
 											<h5 class="description-header">Last Login</h5>
 											<span class="description-text">{{$logindate->updated_at->day}}-{{$logindate->updated_at->month}}-{{$logindate->updated_at->year}}</span>

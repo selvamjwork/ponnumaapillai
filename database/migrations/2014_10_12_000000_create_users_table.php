@@ -48,6 +48,9 @@ class CreateUsersTable extends Migration
             $table->string('moonsign')->nullable();
             $table->string('dosham')->nullable();
             $table->string('dosatype')->nullable();
+            $table->integer('dasha_month')->nullable();
+            $table->integer('dasha_day')->nullable();
+            $table->integer('dasha_year')->nullable();
             $table->string('star')->nullable();
             $table->string('pob')->nullable();
             $table->string('address')->nullable();

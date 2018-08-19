@@ -68,6 +68,9 @@ class User extends Authenticatable
             'aboutyourself',
             'dosatype',
             'dosham',
+            'dasha_day',
+            'dasha_month',
+            'dasha_year',
             'payment_date',
     ];
 

@@ -52,7 +52,15 @@ class HomeController extends Controller
             if ($userLog->user_id = $id->id) {
                 $logindate = UserLog::where('user_id','=',$id->id)->orderBy('updated_at', 'desc')->first();
             }
-            return view('home',compact('id','logindate'));
+            if (!is_null($id->payment_date)) {
+                $created_at = new Carbon(($id->payment_date));
+                $expired_date = Carbon::parse($created_at)->addMonths(12)->format('d-m-Y');
+            }
+            else
+            {
+                $expired_date = "";
+            }
+            return view('home',compact(['id','logindate','expired_date']));
         }
         else
         {
@@ -60,7 +68,7 @@ class HomeController extends Controller
 
             if(empty($result->user_id))
             {
-                $userid_generete = 'PM1000'  .$id->id ;
+                $userid_generete = 'PM1'  .sprintf("%05d", $id->id);
                 $id->user_id = $userid_generete;
                 // dd($userid_generete);
                 $mobile_verification_num = intval( "0" . rand(1,9) . rand(0,9) . rand(0,9) . rand(0,9) . rand(0,9) . rand(0,9) );

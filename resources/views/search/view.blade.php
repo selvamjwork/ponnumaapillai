@@ -230,13 +230,13 @@
                                       <li class="list-group-item"> <strong>Dosham</strong> <a class="float-right">{{$dosham->dosham_name}}</a> </li>
                                   </div>
                               </div>
-                              <!-- <div class="row">
+                              <div class="row">
                                   <div class="col-md-12 pb-1">
-                                      <li class="list-group-item"> <strong>Birth Balance Dasa:</strong>
-                                          <p class="float-none">2 Years 2 Months 2 Days</p>
+                                      <li class="list-group-item"> <strong>Birth Balance Dasa</strong>
+                                          <p class="float-none">{{$user->dasha_year}} Years {{$user->dasha_month}} Months {{$user->dasha_day}} Days</p>
                                       </li>
                                   </div>
-                              </div> -->
+                              </div>
                               <div class="row">
                               @foreach($horoscope as $value)
                                 <div class="col-md-6 pb-1">

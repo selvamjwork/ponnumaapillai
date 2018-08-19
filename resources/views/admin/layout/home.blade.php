@@ -131,7 +131,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('/admin/manage-gallery')}}" class="nav-link ">
+                            <a href="{{url('/admin/album')}}" class="nav-link ">
                                 <i class="fa fa-image nav-icon"></i>
                                 <p>
                                     Manage Gallery

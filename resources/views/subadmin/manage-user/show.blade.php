@@ -213,6 +213,13 @@
                                   </div>
                               </div>
                               <div class="row">
+                                  <div class="col-md-12 pb-1">
+                                      <li class="list-group-item"> <strong>Birth Balance Dasa</strong>
+                                          <p class="float-none">{{$user->dasha_year}} Years {{$user->dasha_month}} Months {{$user->dasha_day}} Days</p>
+                                      </li>
+                                  </div>
+                              </div>
+                              <div class="row">
                               @foreach($horoscope as $value)
                                 <div class="col-md-6 pb-1">
                                     <li class="list-group-item">

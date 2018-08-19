@@ -20,7 +20,6 @@ class UserPaymentCheck
         $user = $request->user();
         $created_at = new Carbon(($user->payment_date));
         $days = Carbon::now()->diffInDays($created_at);
-        // dd($days);
         $expired_date = Carbon::parse($created_at)->addMonths(12)->format('d-m-Y');
         if ($days >= 355 && $days < 365) {
             session()->flash('error', 'This is a reminder that your membership with Ponnumaapillai expired on '.$expired_date.' and you are now within your membership grace period.');
@@ -29,7 +28,7 @@ class UserPaymentCheck
             $user = Auth::user();
             $user->payment_completed = '0';
             $user->update();
-            session()->flash('error', 'your membership grace period!');
+            session()->flash('error', 'Your subscription expired!!!');
         }
         return $next($request);
     }

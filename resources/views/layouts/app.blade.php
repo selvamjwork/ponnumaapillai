@@ -70,7 +70,7 @@
                                 </li>
                             @else
                                 <li class="nav-item">
-                                    <a href="{{ url('/paymentstatus')}}" class="nav-link"> <i class="nav-icon fa fa-shopping-cart"></i>
+                                    <a href="{{ url('/makepayment')}}" class="nav-link"> <i class="nav-icon fa fa-shopping-cart"></i>
                                         <p> Make Payment</p>
                                     </a>
                                 </li>
