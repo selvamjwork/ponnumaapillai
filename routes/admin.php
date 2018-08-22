@@ -23,6 +23,8 @@ Route::group(['middleware'],function(){
     Route::post('/photo/create', 'Admin\PhotosController@store');
     Route::get('/photo/{id}', 'Admin\PhotosController@show');
     Route::delete('/photo/{id}', 'Admin\PhotosController@destroy');
+    // Contect Us
+    Route::resource('/contectus', 'Admin\ContectUsController');
 	// Caste Controller
     Route::resource('/caste', 'Admin\CasteController');
     // Caste Controller

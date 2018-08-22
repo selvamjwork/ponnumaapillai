@@ -177,16 +177,17 @@
     });
     
     function attach(res){
-    $('#subsect').find('option')
-        .remove()
-        .end();
+        $('#subsect').find('option')
+            .remove()
+            .end();
 
-    $('#subsect').append(res);
+        $('#subsect').append(res);
 
-    $("#subsect").append('<option value="others">Others</option>');
+        $("#subsect").append('<option value="others">Others</option>');
 
-    var subset = {{auth()->user()->subsect}}
-        if(subset != ''){
+        var subset = {{auth()->user()->subsect}}
+
+        if(subset!=''){
             $('#subsect').val(subset);
         }
     }

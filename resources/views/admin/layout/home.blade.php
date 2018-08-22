@@ -138,6 +138,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{url('/admin/contectus')}}" class="nav-link ">
+                                <i class="fa fa-phone nav-icon"></i>
+                                <p>
+                                    Manage Contact Us
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>

@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Auth;
 use App\Album;
 use App\Photo;
+use App\Contect;
 
 class defaultController extends Controller
 {
@@ -29,7 +30,8 @@ class defaultController extends Controller
 
     public function contactus()
     {
-    	return view('default.contactus');
+        $cantact = Contect::paginate(10);
+    	return view('default.contactus',compact(['cantact']));
     }
 
     public function payment()
