@@ -35,10 +35,10 @@
                             <form class="was-validated" action="{!! url('/admin/dashboard/onlineusercount') !!}">
                                 <div class="form-group row mr-3 ml-3">
                                     <div class="col-md-12">
-                                        <label for="dateform" class="control-label">Date</label>
+                                        <label for="dateform" class="control-label">Month</label>
                                         <div class="input-group">
-                                            <select required name="month" class="fa fa-caret-down ml-1">
-                                                <option value="">select month</option>
+                                            <select required name="month" class="form-control select2">
+                                                <option value="">Select Month</option>
                                                 @foreach($monthList as $value)
                                                 <option value="{!! $value->id !!}">{!! $value->month_name !!}</option>
                                                 @endforeach
@@ -58,23 +58,18 @@
                                 <tbody>
                                     <tr>
                                         <th>Date</th>
+                                        <th>Online User Count</th>
                                     </tr>
                                     @for($i=0;$i<$month_details["days_count"];$i++)
                                         <tr>
-                                            <?php $date=str_pad(($i+1),2,0,STR_PAD_LEFT)."/".str_pad($month_details["month"],2,0,STR_PAD_LEFT)."/".date("Y")?>
+    <?php $date=str_pad(($i+1),2,0,STR_PAD_LEFT)."/".str_pad($month_details["month"],2,0,STR_PAD_LEFT)."/".date("Y")?>
                                             <td>{{$date}}</td>
-                                            @foreach($caste as $cs)
-                                                @if(array_key_exists($cs->id,$month))
-                                                <!-- <?php $dateExist =  array_search($date, array_column($month[$cs->id], 'created_date')); ?> -->
-                                                    @if($dateExist!==false &&   $month[$cs->id][$dateExist]['created_date']==$date))
-                                                        <td>{{ $month[$cs->id][$dateExist]['count'] }}</td>
-                                                    @else
-                                                        <td>0</td>
-                                                    @endif
-                                                @else
-                                                    <td>0</td>
-                                                @endif
-                                            @endforeach
+                                            <?php $dateExist =  array_search($date, array_column($month, 'created_date')); ?> 
+                                            @if($dateExist!==false &&   $month[$dateExist]['created_date']==$date)
+                                                    <td>{{ $month[$dateExist]['count'] }}</td>
+                                            @else
+                                                <td>0</td>
+                                            @endif
                                         </tr>
                                     @endfor
                                 </tbody>

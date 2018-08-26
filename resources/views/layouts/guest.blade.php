@@ -28,7 +28,7 @@
                         <li><a class="mr-3" href="{{ url('/') }}"> Login </a> </li>
                         <li><a class="mr-3" href="{{ route('register') }}"> Register </a> </li>
                     @else
-                        <li><a class="mr-3" href="#"> {{ Auth::user()->user_id }} </a> </li>
+                        <li><a class="mr-3" href="{{url('/')}}"> {{ Auth::user()->user_id }} </a> </li>
                         <li><i class="fa fa-power-off"></i><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> Logout </a> </li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}

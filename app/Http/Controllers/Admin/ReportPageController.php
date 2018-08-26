@@ -125,4 +125,28 @@ class ReportPageController extends Controller
             return view('admin.dashboard.castewisereport',compact(['requestAll','month_details','monthList','caste']));
         }
     }
+
+    public function onlineUserCount(Request $request)
+    {
+        $monthList  = month::get();
+        $caste = caste::get();
+        $requestAll = $request->All();
+        if (!empty($requestAll)) {
+            $month = User::whereNull('admin_id')->where('payment_completed','1')->whereMonth('created_at',$request->month)
+                ->groupBy('created_at')
+                ->selectRaw('count(created_at) as count, DATE_FORMAT(created_at,"%d/%m/%Y") as created_date')
+                ->orderBy('created_at')
+                ->get();
+            $month = $month->toArray();
+            $month_details=[
+                "month"=>$request->month,
+                "days_count"=>cal_days_in_month(CAL_GREGORIAN,$request->month,date("Y"))
+            ];
+            return view('admin.dashboard.online',compact(['requestAll','monthList','month','caste','month_details']));
+        }
+        else{
+            $month_details = ['month' => '','days_count' => ''];
+            return view('admin.dashboard.online',compact(['requestAll','month_details','monthList','caste']));
+        }
+    }
 }

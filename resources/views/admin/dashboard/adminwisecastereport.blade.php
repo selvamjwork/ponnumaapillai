@@ -83,7 +83,7 @@
                                             @foreach($caste as $cs)
                                                 @if(array_key_exists($cs->id,$month))
                                                 <!-- <?php $dateExist =  array_search($date, array_column($month[$cs->id], 'created_date')); ?> -->
-                                                    @if($dateExist!==false &&   $month[$cs->id][$dateExist]['created_date']==$date))
+                                                    @if($dateExist!==false &&   $month[$cs->id][$dateExist]['created_date']==$date)
                                                         <td>{{ $month[$cs->id][$dateExist]['count'] }}</td>
                                                     @else
                                                         <td>0</td>

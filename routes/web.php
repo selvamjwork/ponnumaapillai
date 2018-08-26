@@ -61,6 +61,8 @@ Route::group(['middleware' => ['auth', 'userLog', 'userPaymentCheck']], function
     Route::get('/paymentstatus','defaultController@paymentstatus');
     Route::get('/makepayment','defaultController@makepayment');
     Route::get('/payment','defaultController@payment');
+    Route::get('/profile/photos','ProfilePhotoController@create');
+    Route::post('/profile/photos','ProfilePhotoController@store');
 
     #VerificationController Route
     Route::get('/mobileVerification', 'Auth\VerificationController@VerifyMobile');

@@ -9,6 +9,7 @@
     <title>PM | @yield('page_name')</title>
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/adminlte.min.css">
+    <link rel="stylesheet" href="/css/croppie.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
@@ -124,6 +125,7 @@
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap-4.0.0.js"></script>
+    <script src="/js/croppie.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     @yield('scripts')
 </body>
