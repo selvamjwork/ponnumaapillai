@@ -80,7 +80,7 @@
                 <div class="col-sm-12 col-md-12">
                     <div class="dataTables_paginate paging_simple_numbers float-sm-right" id="example2_paginate">
                         <div class="pagination">
-                            {!! $user->appends(\Input::except('page'))->render() !!}  
+                            {!! $user->appends(\Input::except('page'))->render("pagination::bootstrap-4") !!}  
                         </div>
                     </div>
                 </div>

@@ -27,8 +27,8 @@ class PhotosController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
-            'description' => 'required',
+            // 'title' => 'required',
+            // 'description' => 'required',
             'photo' => 'image|max:1999',
         ]);
         $path ='images/uploads/photos/'.$request->album_id;

@@ -21,6 +21,9 @@
                   <h1 class="m-0 text-dark">Welcome to Ponnu Maapillai</h1>
               </div>
           </div>
+          <div class="row mt-1">
+              <div class="col"><a href="#" onclick="goBack()" class="btn btn-danger"><b>Back</b></a></div>
+          </div>
       </div>
   </div>
   <section class="content">
@@ -1103,4 +1106,11 @@
       </div>
   </section>
   </div>
+@endsection
+@section('scripts')
+  <script>
+      function goBack() {
+          window.history.back();
+      }
+  </script>
 @endsection

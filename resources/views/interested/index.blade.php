@@ -20,6 +20,9 @@
                     <h1 class="m-0 text-dark">Welcome to Ponnu Maapillai</h1>
                 </div>
             </div>
+            <div class="row mt-1">
+                <div class="col"><a href="#" onclick="goBack()" class="btn btn-danger"><b>Back</b></a></div>
+            </div>
         </div>
     </div>
     <div class="content">
@@ -68,7 +71,7 @@
                 <div class="col-sm-12 col-md-12">
                     <div class="dataTables_paginate paging_simple_numbers float-sm-right" id="example2_paginate">
                         <div class="pagination">
-                            {!! $user->appends(\Input::except('page'))->render() !!}  
+                            {!! $user->appends(\Input::except('page'))->render("pagination::bootstrap-4") !!}  
                         </div>
                     </div>
                 </div>
@@ -77,4 +80,11 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+  <script>
+      function goBack() {
+          window.history.back();
+      }
+  </script>
 @endsection

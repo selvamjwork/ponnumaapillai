@@ -64,8 +64,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div class="card-footer pagination clearfix page-item">
-                                {!! $managesubadmin->render() !!}
+                            <div class="card-footer clearfix">
+                                <div class="pagination pagination-sm m-0 float-right">
+                                    {!! $managesubadmin->render("pagination::bootstrap-4") !!}
+                                </div>
                             </div>
                         </div>
                     </div>

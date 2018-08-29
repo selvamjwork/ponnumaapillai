@@ -217,6 +217,11 @@ class UserController extends Controller
 		return redirect('login');
 	}
 
+	public function deleteUser()
+	{
+		return view('delete_profile.delete');
+	}
+
 	public function removepic()
 	{
 		$remove_profile = new User;		

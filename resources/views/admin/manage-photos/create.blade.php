@@ -28,18 +28,18 @@
                         <div class="card-body">
                             <div>
                                 <input type="hidden" name="album_id" value="{{$album_id}}" class="form-control" id="album_id" required>
-                                <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                                <div class="d-none form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                                     <label for="title">Title</label>
-                                    <input type="text" name="title" class="form-control" id="title" required placeholder="Title">
+                                    <input type="text" name="title" class="form-control" id="title" placeholder="Title">
                                     @if ($errors->has('title'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('title') }}</strong>
                                         </span>
                                     @endif
                                 </div>
-                                <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                                <div class="d-none form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                                     <label for="description">Description</label>
-                                    <input type="text" name="description" class="form-control" id="description" required placeholder="Description">
+                                    <input type="text" name="description" class="form-control" id="description" placeholder="Description">
                                     @if ($errors->has('description'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('description') }}</strong>

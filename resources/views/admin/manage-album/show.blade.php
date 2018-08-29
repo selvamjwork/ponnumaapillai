@@ -48,15 +48,13 @@
                                         @if($i == $colcount)
                                             <div class="col-lg-3 col-md-4 col-xs-6">
                                                 <a href="/admin/photo/{{$photos->id}}" class="d-block mb-4 h-100">
-                                                    <img class="img-fluid img-thumbnail" src="/images/uploads/photos/{{$album->id}}/{{$photos->photo}}" alt="{{$photos->title}}">
-                                                    <h6 class="text-center">{{$photos->title}}</h6>
+                                                    <img class="img-fluid img-thumbnail" src="/images/uploads/photos/{{$album->id}}/{{$photos->photo}}" alt="{{$album->name}}">
                                                 </a>
                                             </div>
                                         @else
                                             <div class="col-lg-3 col-md-4 col-xs-6">
                                                 <a href="/admin/photo/{{$photos->id}}" class="d-block mb-4 h-100">
                                                     <img class="img-fluid img-thumbnail" src="/images/uploads/photos/{{$album->id}}/{{$photos->photo}}" alt="{{$photos->title}}">
-                                                    <h6 class="text-center">{{$photos->title}}</h6>
                                                 </a>
                                             </div>
                                         @endif

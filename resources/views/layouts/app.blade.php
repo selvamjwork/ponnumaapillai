@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>PM | @yield('page_name')</title>
+    <title>PM | {{ Auth::user()->user_id }}</title>
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/adminlte.min.css">
     <link rel="stylesheet" href="/css/croppie.css">
@@ -22,6 +22,7 @@
                 <li class="nav-item d-none d-sm-inline-block"> <a href="{{url('contactus')}}" class="nav-link">Contact</a> </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+                <li><a class="mr-3" href="{{url('/')}}"> {{ Auth::user()->user_id }} </a> </li>
                 <li><i class="fa fa-power-off"></i><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> Logout </a> </li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
@@ -77,7 +78,7 @@
                                 </li>
                             @endif
                             <li class="nav-item">
-                                <a href="{{ url('/deactiveUser') }}" class="nav-link"> <i class="nav-icon fa fa-trash"></i>
+                                <a href="{{ url('/deleteUser') }}" class="nav-link"> <i class="nav-icon fa fa-trash"></i>
                                     <p> Delete Profile</p>
                                 </a>
                             </li>

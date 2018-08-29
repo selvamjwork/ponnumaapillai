@@ -10,13 +10,16 @@
                   <h1 class="d-print-none m-0 text-dark">Welcome to Ponnu Maapillai</h1>
               </div>
           </div>
+          <div class="row mt-1">
+              <div class="col"><a href="#" onclick="goBack()" class="btn btn-danger"><b>Back</b></a></div>
+          </div>
           <div class="row mb-2">
                 <div class="col-sm-12 text-center">
                     @if(Session::has('message')) 
                         <div class="alert alert-info"> {{Session::get('message')}} </div> 
                     @endif
                 </div>
-            </div>
+          </div>
       </div>
     </div>
     <section class="content">
@@ -43,4 +46,11 @@
         </div>
     </section>
 </div>
+@endsection
+@section('scripts')
+  <script>
+      function goBack() {
+          window.history.back();
+      }
+  </script>
 @endsection

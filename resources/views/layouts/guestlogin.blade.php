@@ -9,8 +9,8 @@
     <!-- Bootstrap -->
     <link href="css/adminlte.min.css" rel="stylesheet">
 </head>
-<body id="ponnumaapillai" style="padding-top: 70px">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-danger mb-5">
+<body id="ponnumaapillai" style="padding-top: 25px">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-danger">
         <div class="container">
             <div class="align-self-center">
                 <img src="img/Logo-PonnuMaapillai.png" alt="Logo-Ponnu Maapillai" width="60" class="img-fluid"><a class="navbar-brand" href="{{url('/')}}"><strong class="text-white" style="font-size: 21px;">&nbsp; Ponnu Maapillai</strong></a>
@@ -34,10 +34,25 @@
             </div>
         </div>
     </nav>
-
-<br><br><br>
-    <!-- body code goes here -->
-    
+    <br><br><br><br>
+    <div id="id1" class="d-none">
+        <nav class="navbar-expand-lg navbar-light bg-danger">
+            <div class="container">
+                <div>
+                    <center><a href="/admin/login">Go To Admin</a></center>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id="id2" class="d-none">
+        <nav class="navbar-expand-lg navbar-light bg-danger">
+            <div class="container">
+                <div>
+                    <center><a href="/subadmin/login">Go To Subadmin Page</a></center>
+                </div>
+            </div>
+        </nav>
+    </div>
     <header>
         <div class="container" id="marquee">
              @if(Session::has('success'))
@@ -63,24 +78,6 @@
         </div>
     </header>
 
-    <div id="id1" class="d-none">
-        <center>
-        <nav>
-           <div class="align-self-center">
-                <a class="align-self-center" href="/admin/login">Go To Admin Page</a>
-            </div>
-        </nav>
-        </center>
-    </div>
-    <div id="id2" class="d-none">
-        <center>
-        <nav>
-           <div class="align-self-center">
-                <a class="align-self-center" href="/subadmin/login">Go To Subadmin Page</a>
-            </div>
-        </nav>
-        </center>
-    </div>
     <div class="container">
         <div class="row">
             <div class="col-xl-9 col-lg-9 pb-3 pt-3">

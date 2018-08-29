@@ -3,6 +3,8 @@
 
 @section('content')
 <div class="container">
+	<div class="panel-heading"><center><strong> Reach Us </strong></center></div>
+	<br>
 	<div class="container-fluid">
 		<div class="row">
 			@foreach($cantact as $cantactus)

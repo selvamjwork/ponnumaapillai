@@ -63,7 +63,11 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div class="pagination-wrapper"> {!! $caste->render() !!} </div>
+                            <div class="card-footer clearfix">
+                                <div class="pagination pagination-sm m-0 float-right">
+                                    {!! $caste->render("pagination::bootstrap-4") !!} 
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

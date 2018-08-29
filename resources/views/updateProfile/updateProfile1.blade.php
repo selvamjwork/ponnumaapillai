@@ -1316,7 +1316,6 @@
         $.ajax({
             url:'/get-subsect/'+val,
             success:function(res){
-               console.log(res);
                attach(res);
             },
         });

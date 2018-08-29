@@ -40,14 +40,12 @@
                             <table class="table table-bordered mt-3">
                                 <tbody>
                                     <tr>
-                                        <th>Title</th>
                                         <th>Image</th>
                                         <th>Size</th>
                                         <th>Created Date</th>
                                         <th style="width: 40px">Delete</th>
                                     </tr>
                                     <tr>
-                                        <td>{{$photo->title}}</td>
                                         <td><img height="100" src="/images/uploads/photos/{{$photo->album_id}}/{{$photo->photo}}" alt="{{$photo->title}}" class="margin"></td>
                                         <td>{{$photo->size}}</td>
                                         <td>{{$photo->created_at->day}}-{{$photo->created_at->month}}-{{$photo->created_at->year}}</td>

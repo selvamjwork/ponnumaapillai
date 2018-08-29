@@ -78,7 +78,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div class="pagination-wrapper"> {!! $scrollingmessage->render() !!} </div>
+                            <div class="pagination-wrapper"> {!! $scrollingmessage->render("pagination::bootstrap-4") !!} </div>
                         </div>
                     </div>
                 </div>

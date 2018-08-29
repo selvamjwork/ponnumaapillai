@@ -110,6 +110,7 @@ Route::group(['middleware' => ['auth', 'userLog', 'userPaymentCheck']], function
 
     #Deactivete Profile
     Route::get('/deactiveUser','UserController@deactiveUser');
+    Route::get('/deleteUser','UserController@deleteUser');
 
 });
 

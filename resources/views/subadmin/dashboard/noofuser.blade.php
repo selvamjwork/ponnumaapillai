@@ -100,6 +100,11 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="card-footer clearfix">
+                                <div class="pagination pagination-sm m-0 float-right"> 
+                                    {!! $newuser->render("pagination::bootstrap-4") !!} 
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>

@@ -71,7 +71,11 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div class="pagination-wrapper"> {!! $subcaste->render() !!} </div>
+                            <div class="card-footer">
+                                <div class="pagination float-right">
+                                    {!! $subcaste->render("pagination::bootstrap-4") !!}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
