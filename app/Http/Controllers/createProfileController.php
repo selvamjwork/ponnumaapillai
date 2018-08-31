@@ -297,7 +297,7 @@ class createProfileController extends Controller
             && !empty($request->amsam_lagna)) 
         {
             $horoscope = horoscope::create([
-                'user_id' => $usercreate->id,
+                'user_id' => $user->id,
                 'raasi_sun' => $request->raasi_sun,
                 'raasi_moon' => $request->raasi_moon,
                 'raasi_mars' => $request->raasi_mars,
@@ -340,7 +340,6 @@ class createProfileController extends Controller
     }
     public function createprofilesms(Request $request)
     {
-    	
 		return view('default.payment');
     }
 }
